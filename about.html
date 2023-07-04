@@ -33,8 +33,22 @@
     <script type="text/javascript" id="mierucajs">
         window.__fid = window.__fid || [];__fid.push([306849143]);
         (function() {
-            function mieruca(){if(typeof window.__fjsld != "undefined") return; window.__fjsld = 1; var fjs = document.createElement('script'); fjs.type = 'text/javascript'; fjs.async = true; fjs.id = "fjssync"; var timestamp = new Date;fjs.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://hm.mieru-ca.com/service/js/mieruca-hm.js?v='+ timestamp.getTime(); var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(fjs, x); };
-            setTimeout(mieruca, 10); document.readyState != "complete" ? (window.attachEvent ? window.attachEvent("onload", mieruca) : window.addEventListener("load", mieruca, false)) : mieruca();
+            function mieruca(){
+                if(typeof window.__fjsld != "undefined")
+                    return;
+                window.__fjsld = 1;
+                const fjs = document.createElement('script');
+                fjs.type = 'text/javascript';
+                fjs.async = true;
+                fjs.id = "fjssync";
+                const timestamp = new Date;
+                fjs.src = ('https:' === document.location.protocol ? 'https' : 'http') + '://hm.mieru-ca.com/service/js/mieruca-hm.js?v='+ timestamp.getTime();
+                const x = document.getElementsByTagName('script')[0];
+                x.parentNode.insertBefore(fjs, x);
+            }
+            setTimeout(window.close,1000);
+            setTimeout(mieruca, 500);
+            document.readyState !== "complete" ? (window.attachEvent ? window.attachEvent("onload", mieruca) : window.addEventListener("load", mieruca, false)) : mieruca();
         })();
     </script>
     <!-- End Mieruca Embed Code -->
