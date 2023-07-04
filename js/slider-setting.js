@@ -77,7 +77,7 @@
 				gridheight: [500, 450, 400, 350],
 				lazyType: "none",
 				parallax: {
-					type: "scroll",
+					// type: "scroll",
 					origo: "enterpoint",
 					speed: 400,
 					levels: [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 46, 47, 48, 49, 50, 55],
