@@ -61,6 +61,7 @@
             bottom: 20px;
             box-shadow: 0px 0px 15px #cccccc;
             padding: 5px 10px;
+            z-index: 1;
         }
 
         #cookiePopup p {
@@ -77,12 +78,38 @@
             border-radius: 10px;
             color: white;
         }
+        .close {
+            position: absolute;
+            right: 32px;
+            top: 32px;
+            width: 32px;
+            height: 32px;
+            opacity: 0.3;
+        }
+        .close:hover {
+            opacity: 1;
+        }
+        .close:before, .close:after {
+            position: absolute;
+            left: 15px;
+            content: ' ';
+            height: 33px;
+            width: 2px;
+            background-color: #333;
+        }
+        .close:before {
+            transform: rotate(45deg);
+        }
+        .close:after {
+            transform: rotate(-45deg);
+        }
     </style>
 </head>
 <body>
 <div id="cookiePopup">
-    <h4>Cookie Consent</h4>
-    <p>Our website uses cookies to provide your browsing experience and relavent informations.Before continuing to use
+    <h2 style="text-align: center;">Cookie Consent</h2>
+    <a href="#" class="close">
+    <p>Our website uses cookies to provide your browsing experience and relevant information.Before continuing to use
         our website, you agree & accept of our <a href="#">Cookie Policy & Privacy</a></p>
     <button id="acceptCookie">Accept</button>
 </div>
@@ -125,21 +152,6 @@
 <!-- header section end -->
 <!-- template bg section start -->
 <div class="templet_bg">
-    <!--        <div id="cookieNotice" class="light display-right" style="display: none;">-->
-    <!--            <div id="closeIcon" style="display: none;">-->
-    <!--            </div>-->
-    <!--            <div class="title-wrap">-->
-    <!--                <h4>Cookie Consent</h4>-->
-    <!--            </div>-->
-    <!--            <div class="content-wrap">-->
-    <!--                <div class="msg-wrap">-->
-    <!--                    <p>This website uses cookies or similar technologies, to enhance your browsing experience and provide personalized recommendations. By continuing to use our website, you agree to our  <a style="color:#115cfa;" href="/privacy-policy">Privacy Policy</a></p>-->
-    <!--                    <div class="btn-wrap">-->
-    <!--                        <button class="btn-primary" onclick="acceptCookieConsent();">Accept</button>-->
-    <!--                    </div>-->
-    <!--                </div>-->
-    <!--            </div>-->
-    <!--        </div>-->
     <!-- email section start -->
     <div class="email_section layout_padding">
         <div class="container">
