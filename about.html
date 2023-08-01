@@ -296,7 +296,7 @@
     // Close cookie policy
     let closeCookie = document.getElementById("closeCookie");
     closeCookie.onclick = function () {
-        document.getElementById("cookiePopup").style.display = "block";
+        document.getElementById("cookiePopup").style.display = "none";
     }
     // check cookie is set or not
     let checkCookie = function () {
@@ -304,7 +304,6 @@
         if (check == "") {
             document.getElementById("cookiePopup").style.display = "block";
         } else {
-
             document.getElementById("cookiePopup").style.display = "none";
         }
     }
