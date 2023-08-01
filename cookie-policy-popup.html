@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <style>
+    #cookiePopup {
+      background: white;
+      width: 25%;
+      position: fixed;
+      left: 10px;
+      bottom: 20px;
+      box-shadow: 0 0 15px #cccccc;
+      padding: 5px 10px;
+      z-index: 1;
+    }
+
+    #cookiePopup p {
+      text-align: left;
+      font-size: 15px;
+      color: #4e4e4e;
+    }
+
+    #cookiePopup button {
+      width: 100%;
+      border: navajowhite;
+      background: #097fb7;
+      padding: 5px;
+      border-radius: 10px;
+      color: white;
+    }
+    .close {
+      position: absolute;
+      right: 10px;
+      top: 8px;
+      width: 32px;
+      opacity: 0.3;
+    }
+    .close:hover {
+      opacity: 1;
+    }
+    .close:before, .close:after {
+      position: absolute;
+      left: 15px;
+      content: ' ';
+      height: 33px;
+      width: 2px;
+      background-color: #333;
+    }
+    .close:before {
+      transform: rotate(45deg);
+    }
+    .close:after {
+      transform: rotate(-45deg);
+    }
+  </style>
+</head>
+<body>
+<div id="cookiePopup">
+  <div>
+    <h2 style="text-align: center;">Cookie Consent</h2>
+    <a id="closeCookie" href="#" class="close"></a>
+  </div>
+  <p>Our website uses cookies to provide your browsing experience and relevant information.Before continuing to use
+    our website, you agree & accept of our <a href="#">Cookie Policy & Privacy</a></p>
+  <button id="acceptCookie">Accept</button>
+</div>
+<script type="text/javascript">
+  // set cookie according to you
+  var cookieName = "MierucaCookiePolicy";
+  var cookieValue = "Agreed";
+  var cookieExpireDays = 30;
+  // when users click accept button
+  $("#acceptCookie").onclick = function () {
+    let currentDate = new Date();
+    currentDate.setTime(currentDate.getTime() + (cookieExpireDays * 24 * 60 * 60 * 1000));
+    let expires = "expires=" + currentDate.toGMTString();
+    document.cookie = cookieName + "=" + cookieValue + ";" + expires + ";path=/";
+    if (document.cookie) {
+      $("#cookiePopup").style.display = "none";
+    } else {
+      alert("Unable to set cookie. Please allow all cookies site from cookie setting of your browser");
+    }
+  }
+  // get cookie from the web browser
+  let getCookie = function (cookieName) {
+    let name = cookieName + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) === ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) === 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
+  // Close cookie policy
+  $("#closeCookie").onclick = function () {
+    $("#cookiePopup").style.display = "none";
+  }
+  // check cookie is set or not
+  let checkCookie = function () {
+    let check = getCookie(cookieName);
+    if (check === "") {
+      $("#cookiePopup").style.display = "block";
+    } else {
+      $("#cookiePopup").style.display = "none";
+    }
+  }
+  checkCookie();
+</script>
+</body>
+</html>

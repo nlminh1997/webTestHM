@@ -43,77 +43,24 @@
                 fjs.async = true;
                 fjs.id = "fjssync";
                 var timestamp = new Date;
-                fjs.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://hm.mieru-ca.com/service/js/mieruca-hm.js?v=' + timestamp.getTime();
+                fjs.src = ('https:' === document.location.protocol ? 'https' : 'http') + '://hm.mieru-ca.com/service/js/mieruca-hm.js?v=' + timestamp.getTime();
                 var x = document.getElementsByTagName('script')[0];
                 x.parentNode.insertBefore(fjs, x);
-            };
+            }
+
             setTimeout(mieruca, 500);
-            document.readyState != "complete" ? (window.attachEvent ? window.attachEvent("onload", mieruca) : window.addEventListener("load", mieruca, false)) : mieruca();
+            document.readyState !== "complete" ? (window.attachEvent ? window.attachEvent("onload", mieruca) : window.addEventListener("load", mieruca, false)) : mieruca();
         })();
     </script>
     <!-- End Mieruca Embed Code -->
-    <style>
-        #cookiePopup {
-            background: white;
-            width: 25%;
-            position: fixed;
-            left: 10px;
-            bottom: 20px;
-            box-shadow: 0px 0px 15px #cccccc;
-            padding: 5px 10px;
-            z-index: 1;
-        }
-
-        #cookiePopup p {
-            text-align: left;
-            font-size: 15px;
-            color: #4e4e4e;
-        }
-
-        #cookiePopup button {
-            width: 100%;
-            border: navajowhite;
-            background: #097fb7;
-            padding: 5px;
-            border-radius: 10px;
-            color: white;
-        }
-        .close {
-            position: absolute;
-            right: 10px;
-            top: 8px;
-            width: 32px;
-            opacity: 0.3;
-        }
-        .close:hover {
-            opacity: 1;
-        }
-        .close:before, .close:after {
-            position: absolute;
-            left: 15px;
-            content: ' ';
-            height: 33px;
-            width: 2px;
-            background-color: #333;
-        }
-        .close:before {
-            transform: rotate(45deg);
-        }
-        .close:after {
-            transform: rotate(-45deg);
-        }
-    </style>
+    <script type="text/javascript">
+        (function () {
+            $("#cookie-policy-popup").load("cookie-policy-popup.html");
+        })();
+    </script>
 </head>
 <body>
-<div id="cookiePopup">
-    <div>
-        <h2 style="text-align: center;">Cookie Consent</h2>
-        <a id="closeCookie" href="#" class="close"></a>
-    </div>
-    <p>Our website uses cookies to provide your browsing experience and relevant information.Before continuing to use
-        our website, you agree & accept of our <a href="#">Cookie Policy & Privacy</a></p>
-    <button id="acceptCookie">Accept</button>
-</div>
+<div id="cookie-policy-popup"></div>
 <!-- header section start -->
 <div class="header_section">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -255,60 +202,6 @@
         </div>
     </div>
 </div>
-<script type="text/javascript">
-    // set cookie according to you
-    var cookieName = "CodingStatus";
-    var cookieValue = "Coding Tutorials";
-    var cookieExpireDays = 30;
-    // when users click accept button
-    let acceptCookie = document.getElementById("acceptCookie");
-    acceptCookie.onclick = function () {
-        createCookie(cookieName, cookieValue, cookieExpireDays);
-    }
-    // function to set cookie in web browser
-    let createCookie = function (cookieName, cookieValue, cookieExpireDays) {
-        let currentDate = new Date();
-        currentDate.setTime(currentDate.getTime() + (cookieExpireDays * 24 * 60 * 60 * 1000));
-        let expires = "expires=" + currentDate.toGMTString();
-        document.cookie = cookieName + "=" + cookieValue + ";" + expires + ";path=/";
-        if (document.cookie) {
-            document.getElementById("cookiePopup").style.display = "none";
-        } else {
-            alert("Unable to set cookie. Please allow all cookies site from cookie setting of your browser");
-        }
-    }
-    // get cookie from the web browser
-    let getCookie = function (cookieName) {
-        let name = cookieName + "=";
-        let decodedCookie = decodeURIComponent(document.cookie);
-        let ca = decodedCookie.split(';');
-        for (let i = 0; i < ca.length; i++) {
-            let c = ca[i];
-            while (c.charAt(0) === ' ') {
-                c = c.substring(1);
-            }
-            if (c.indexOf(name) === 0) {
-                return c.substring(name.length, c.length);
-            }
-        }
-        return "";
-    }
-    // Close cookie policy
-    let closeCookie = document.getElementById("closeCookie");
-    closeCookie.onclick = function () {
-        $("#cookiePopup").style.display = "none";
-    }
-    // check cookie is set or not
-    let checkCookie = function () {
-        let check = getCookie(cookieName);
-        if (check === "") {
-            document.getElementById("cookiePopup").style.display = "block";
-        } else {
-            document.getElementById("cookiePopup").style.display = "none";
-        }
-    }
-    checkCookie();
-</script>
 <!-- copyright section end -->
 <!-- Javascript files-->
 <script src="js/jquery.min.js"></script>
