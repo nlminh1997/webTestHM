@@ -80,10 +80,9 @@
         }
         .close {
             position: absolute;
-            right: 32px;
-            top: 32px;
+            right: 10px;
+            top: 8px;
             width: 32px;
-            height: 32px;
             opacity: 0.3;
         }
         .close:hover {
@@ -107,8 +106,10 @@
 </head>
 <body>
 <div id="cookiePopup">
-    <h2 style="text-align: center;">Cookie Consent</h2>
-    <a href="#" class="close">
+    <div>
+        <h2 style="text-align: center;">Cookie Consent</h2>
+        <a id="closeCookie" href="#" class="close"></a>
+    </div>
     <p>Our website uses cookies to provide your browsing experience and relevant information.Before continuing to use
         our website, you agree & accept of our <a href="#">Cookie Policy & Privacy</a></p>
     <button id="acceptCookie">Accept</button>
@@ -292,6 +293,11 @@
         }
         return "";
     }
+    // Close cookie policy
+    let closeCookie = document.getElementById("closeCookie");
+    closeCookie.onclick = function () {
+        document.getElementById("cookiePopup").style.display = "block";
+    }
     // check cookie is set or not
     let checkCookie = function () {
         let check = getCookie(cookieName);
@@ -304,54 +310,6 @@
     }
     checkCookie();
 </script>
-<!--    <script>-->
-<!--        // Create cookie-->
-<!--        function setCookie(cname, cvalue, exdays) {-->
-<!--            const d = new Date();-->
-<!--            d.setTime(d.getTime() + (exdays*24*60*60*1000));-->
-<!--            let expires = "expires="+ d.toUTCString();-->
-<!--            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";-->
-<!--        }-->
-
-<!--        // Delete cookie-->
-<!--        function deleteCookie(cname) {-->
-<!--            const d = new Date();-->
-<!--            d.setTime(d.getTime() + (24*60*60*1000));-->
-<!--            let expires = "expires="+ d.toUTCString();-->
-<!--            document.cookie = cname + "=;" + expires + ";path=/";-->
-<!--        }-->
-
-<!--        // Read cookie-->
-<!--        function getCookie(cname) {-->
-<!--            let name = cname + "=";-->
-<!--            let decodedCookie = decodeURIComponent(document.cookie);-->
-<!--            let ca = decodedCookie.split(';');-->
-<!--            for(let i = 0; i <ca.length; i++) {-->
-<!--                let c = ca[i];-->
-<!--                while (c.charAt(0) === ' ') {-->
-<!--                    c = c.substring(1);-->
-<!--                }-->
-<!--                if (c.indexOf(name) === 0) {-->
-<!--                    return c.substring(name.length, c.length);-->
-<!--                }-->
-<!--            }-->
-<!--            return "";-->
-<!--        }-->
-
-<!--        // Set cookie consent-->
-<!--        function acceptCookieConsent(){-->
-<!--            deleteCookie('user_cookie_consent');-->
-<!--            setCookie('user_cookie_consent', 1, 30);-->
-<!--            document.getElementById("cookieNotice").style.display = "none";-->
-<!--        }-->
-
-<!--        let cookie_consent = getCookie("user_cookie_consent");-->
-<!--        if(cookie_consent !== ""){-->
-<!--            document.getElementById("cookieNotice").style.display = "none";-->
-<!--        }else{-->
-<!--            document.getElementById("cookieNotice").style.display = "block";-->
-<!--        }-->
-<!--    </script>-->
 <!-- copyright section end -->
 <!-- Javascript files-->
 <script src="js/jquery.min.js"></script>
