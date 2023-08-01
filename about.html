@@ -258,19 +258,19 @@
 </div>
 <!-- copyright section end -->
 <!-- Javascript files-->
-<script src="jquery.js">
+<script type="text/javascript">
     // set cookie according to you
     var cookieName = "MierucaCookiePolicy";
     var cookieValue = "Agreed";
     var cookieExpireDays = 30;
     // when users click accept button
-    $("#acceptCookie").onclick = function () {
+    document.getElementById("acceptCookie").onclick = function () {
         let currentDate = new Date();
         currentDate.setTime(currentDate.getTime() + (cookieExpireDays * 24 * 60 * 60 * 1000));
         let expires = "expires=" + currentDate.toGMTString();
         document.cookie = cookieName + "=" + cookieValue + ";" + expires + ";path=/";
         if (document.cookie) {
-            $("#cookiePopup").style.display = "none";
+            document.getElementById("#cookiePopup").style.display = "none";
         } else {
             alert("Unable to set cookie. Please allow all cookies site from cookie setting of your browser");
         }
@@ -292,16 +292,16 @@
         return "";
     }
     // Close cookie policy
-    $("#closeCookie").onclick = function () {
-        $("#cookiePopup").style.display = "none";
+    document.getElementById("closeCookie").onclick = function () {
+        document.getElementById("closeCookie").style.display = "none";
     }
     // check cookie is set or not
     let checkCookie = function () {
         let check = getCookie(cookieName);
         if (check === "") {
-            $("#cookiePopup").style.display = "block";
+            document.getElementById("cookiePopup").style.display = "block";
         } else {
-            $("#cookiePopup").style.display = "none";
+            document.getElementById("cookiePopup").style.display = "none";
         }
     }
     checkCookie();
