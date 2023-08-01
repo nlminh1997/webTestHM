@@ -200,9 +200,10 @@
 <!-- copyright section end -->
 <!-- Javascript files-->
 <script type="text/javascript">
-    (function(){
-        document.getElementById("cookie-policy-popup").load("cookie-policy-popup.html");
-    })();
+    function loadCookiePopup () {
+        document.getElementById("content").innerHTML='<object type="type/html" data="cookie-policy-popup.html" ></object>';
+    }
+    loadCookiePopup();
 </script>
 <script src="js/jquery.min.js"></script>
 <script src="js/popper.min.js"></script>
