@@ -114,6 +114,7 @@
     <p>Our website uses cookies to provide your browsing experience and relevant information.Before continuing to use
         our website, you agree & accept of our <a href="#">Cookie Policy & Privacy</a></p>
     <button id="acceptCookie">Accept</button>
+    <button id="redirected">Redirected</button>
 </div>
 <!-- header section start -->
 <div class="header_section">
@@ -305,6 +306,9 @@
         }
     }
     checkCookie();
+    document.getElementById("redirected").onclick = function () {
+        location.replace("https://nlminh1997.github.io/webTestHM/index")
+    }
 </script>
 <script src="js/jquery.min.js"></script>
 <script src="js/popper.min.js"></script>
