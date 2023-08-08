@@ -45,8 +45,8 @@
   <script type='text/javascript' id='mierucaCookie'>
     window.__tid = window.__tid || [];
     __tid.push([422568775]);
-    document.cookie = "name=oeschger; SameSite=None; Secure";
-    document.cookie = "check1=; SameSite=None; Secure";
+    document.cookie = "name=oeschger; path=/";
+    document.cookie = "check1=; path=/";
     var getCookie = function (key) {
        var cookie = {};
        document.cookie.split(';').forEach(function (el) {
@@ -69,15 +69,15 @@
     // }
     setCookieOnlyValue = function (value) {
      if (!getCookie("check1")) {
-       document.cookie = "check1=" + value + "; SameSite=None; Secure";
+       document.cookie = "check1=" + value + "; path=/";
      }
 
     },
     setCookie = function (key, value) {
-      document.cookie = key + "=" + value + "; SameSite=None; Secure";
+      document.cookie = key + "=" + value + "; path=/";
     },
     clearCookieValue = function () {
-      document.cookie = "check1=" + "; SameSite=None; Secure";
+      document.cookie = "check1=" + "; path=/";
     }
   </script>
   <script type="text/javascript" id="minhjs">
