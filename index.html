@@ -61,7 +61,7 @@
          let [k, v] = el.split('=');
          cookie[k.trim()] = v;
        })
-       return cookie[1];
+       return cookie[key];
     },
     // setCookieMierucaHeatmapABTest = function (value, days) {
     //   var expires;
@@ -76,11 +76,16 @@
     //   document.cookie = "_mhabtrp=" + value + expires + "; path=/";
     // }
     setCookieOnlyValue = function (value) {
-      var check1 = getCookie("check1");
-      document.cookie = check1 + value + ";";
+     if (getCookie("check1")) {
+       document.cookie = "check1=" + value + "; SameSite=None; Secure";
+     }
+
     },
     setCookie = function (key, value) {
       document.cookie = key + "=" + value + "; SameSite=None; Secure";
+    },
+    clearCookieValue = function () {
+      document.cookie = "check1=" + "; SameSite=None; Secure";
     }
   </script>
 </head>
