@@ -76,7 +76,7 @@
     //   document.cookie = "_mhabtrp=" + value + expires + "; path=/";
     // }
     setCookieOnlyValue = function (value) {
-     if (getCookie("check1")) {
+     if (!getCookie("check1")) {
        document.cookie = "check1=" + value + "; SameSite=None; Secure";
      }
 
