@@ -80,46 +80,7 @@
       document.cookie = "check1=" + "; path=/";
     }
   </script>
-  <script type="text/javascript" id="minhjs">
-    (function () {
-      function mieruca() {
-        if (typeof window.__fjsld != "undefined") return;
-        window.__fjsld = 1;
-        var fjs = document.createElement('script');
-        fjs.type = 'text/javascript';
-        fjs.async = true;
-        fjs.id = "fjssync";
-        //     var timestamp = new Date;
-        //     fjs.src = ('https:' === document.location.protocol ? 'https' : 'http') + '://hm.mieru-ca.com/service/js/mieruca-hm.js?v=' + timestamp.getTime();
-        fjs.src = 'https://hm.mieru-ca.com/service/js/mieruca-hm-cookie-test-2.js';
-        var x = document.getElementsByTagName('script')[0];
-        x.parentNode.insertBefore(fjs, x);
-      }
-      setTimeout(mieruca, 500);
-      document.readyState !== "complete" ? (window.attachEvent ? window.attachEvent("onload", mieruca) : window.addEventListener("load", mieruca, false)) : mieruca();
-    })();
-  </script>
-  <script type="text/javascript" id="mierucajs">
-    window.__fid = window.__fid || [];
-    __fid.push([422568774]);
-    (function () {
-      function mieruca() {
-          if (typeof window.__fjsld != "undefined") return;
-          window.__fjsld = 1;
-          var fjs = document.createElement('script');
-          fjs.type = 'text/javascript';
-          fjs.async = true;
-          fjs.id = "fjssync";
-      //     var timestamp = new Date;
-      //     fjs.src = ('https:' === document.location.protocol ? 'https' : 'http') + '://hm.mieru-ca.com/service/js/mieruca-hm.js?v=' + timestamp.getTime();
-          fjs.src = 'https://hm.mieru-ca.com/service/js/mieruca-hm.js?v=1691465194526';
-          var x = document.getElementsByTagName('script')[0];
-          x.parentNode.insertBefore(fjs, x);
-      }
-      setTimeout(mieruca, 500);
-      document.readyState !== "complete" ? (window.attachEvent ? window.attachEvent("onload", mieruca) : window.addEventListener("load", mieruca, false)) : mieruca();
-    })();
-  </script>
+  <script src = 'https://hm.mieru-ca.com/service/js/mieruca-hm-cookie-test-3.js'></script>
 </head>
 <body>
     <!-- header section start -->
