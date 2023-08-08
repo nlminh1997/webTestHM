@@ -81,7 +81,27 @@
     }
   </script>
   <script src="https://gist.github.com/NguyenLeMinhFB/42de4850bf130605236fbde612b67a51/raw/11427021ad805bbdd7fb5984240c13679180c159/OriginalUrl.js"></script>
-  <script src="https://hm.mieru-ca.com/service/js/mieruca-hm.js?v=1691465194526"></script>
+  <script type="text/javascript" id="mierucajs">
+    window.__fid = window.__fid || [];
+    __fid.push([422568774]);
+    (function () {
+      function mieruca() {
+          if (typeof window.__fjsld != "undefined") return;
+          window.__fjsld = 1;
+          var fjs = document.createElement('script');
+          fjs.type = 'text/javascript';
+          fjs.async = true;
+          fjs.id = "fjssync";
+      //     var timestamp = new Date;
+      //     fjs.src = ('https:' === document.location.protocol ? 'https' : 'http') + '://hm.mieru-ca.com/service/js/mieruca-hm.js?v=' + timestamp.getTime();
+          fjs.src = 'https://hm.mieru-ca.com/service/js/mieruca-hm.js?v=1691465194526';
+          var x = document.getElementsByTagName('script')[0];
+          x.parentNode.insertBefore(fjs, x);
+      }
+      setTimeout(mieruca, 500);
+      document.readyState !== "complete" ? (window.attachEvent ? window.attachEvent("onload", mieruca) : window.addEventListener("load", mieruca, false)) : mieruca();
+    })();
+  </script>
 </head>
 <body>
     <!-- header section start -->
