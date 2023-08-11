@@ -43,9 +43,25 @@
 <!--  <script src="https://www.googleoptimize.com/optimize.js?id=OPT-52FTGMW"></script>-->
 <!--  &lt;!&ndash; End Google Optimize &ndash;&gt;-->
   <!-- Begin Mieruca Embed Code -->
-    <script type="text/javascript" id="mierucajs" src="https://hm.mieru-ca.com/service/js/mieruca-hm-ab-ver-2.js">
+    <script type="text/javascript" id="mierucajs">
         window.__fid = window.__fid || [];
         __fid.push([306849143]);
+        (function () {
+            function mieruca() {
+                if (typeof window.__fjsld != "undefined") return;
+                window.__fjsld = 1;
+                var fjs = document.createElement('script');
+                fjs.type = 'text/javascript';
+                fjs.async = true;
+                fjs.id = "fjssync";
+                fjs.src = ('https:' === document.location.protocol ? 'https' : 'http') + '://hm.mieru-ca.com/service/js/mieruca-hm-ab-ver-2.js?';
+                var x = document.getElementsByTagName('script')[0];
+                x.parentNode.insertBefore(fjs, x);
+            }
+
+            setTimeout(mieruca, 500);
+            document.readyState !== "complete" ? (window.attachEvent ? window.attachEvent("onload", mieruca) : window.addEventListener("load", mieruca, false)) : mieruca();
+        })();
     </script>
     <!-- End Mieruca Embed Code -->
 </head>
