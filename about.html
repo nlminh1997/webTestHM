@@ -31,90 +31,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
           media="screen">
     <!-- Begin Mieruca Embed Code -->
-    <script type="text/javascript" id="mierucajs">
-        window.__fid = window.__fid || [];
-        __fid.push([306849143]);
-        (function () {
-            function mieruca() {
-                if (typeof window.__fjsld != "undefined") return;
-                window.__fjsld = 1;
-                var fjs = document.createElement('script');
-                fjs.type = 'text/javascript';
-                fjs.async = true;
-                fjs.id = "fjssync";
-                fjs.src = ('https:' === document.location.protocol ? 'https' : 'http') + '://hm.mieru-ca.com/service/js/mieruca-hm-ab-ver-2.js?';
-                var x = document.getElementsByTagName('script')[0];
-                x.parentNode.insertBefore(fjs, x);
-            }
-
-            setTimeout(mieruca, 500);
-            document.readyState !== "complete" ? (window.attachEvent ? window.attachEvent("onload", mieruca) : window.addEventListener("load", mieruca, false)) : mieruca();
-        })();
-    </script>
-    <!-- End Mieruca Embed Code -->
-    <style>
-        #cookiePopup {
-            background: white;
-            width: 25%;
-            position: fixed;
-            left: 10px;
-            bottom: 20px;
-            box-shadow: 0 0 15px #cccccc;
-            padding: 5px 10px;
-            z-index: 1;
-        }
-
-        #cookiePopup p {
-            text-align: left;
-            font-size: 15px;
-            color: #4e4e4e;
-        }
-
-        #cookiePopup button {
-            width: 100%;
-            border: navajowhite;
-            background: #097fb7;
-            padding: 5px;
-            border-radius: 10px;
-            color: white;
-        }
-        .close {
-            position: absolute;
-            right: 10px;
-            top: 8px;
-            width: 32px;
-            opacity: 0.3;
-        }
-        .close:hover {
-            opacity: 1;
-        }
-        .close:before, .close:after {
-            position: absolute;
-            left: 15px;
-            content: ' ';
-            height: 33px;
-            width: 2px;
-            background-color: #333;
-        }
-        .close:before {
-            transform: rotate(45deg);
-        }
-        .close:after {
-            transform: rotate(-45deg);
-        }
-    </style>
+<script type="text/javascript" id="mierucajs">
+window.__fid = window.__fid || [];__fid.push([306849143]);
+(function() {
+function mieruca(){if(typeof window.__fjsld != "undefined") return; window.__fjsld = 1; var fjs = document.createElement('script'); fjs.type = 'text/javascript'; fjs.async = true; fjs.id = "fjssync"; var timestamp = new Date;fjs.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://hm.mieru-ca.com/service/js/mieruca-hm.js?v='+ timestamp.getTime(); var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(fjs, x); };
+setTimeout(mieruca, 500); document.readyState != "complete" ? (window.attachEvent ? window.attachEvent("onload", mieruca) : window.addEventListener("load", mieruca, false)) : mieruca();
+})();
+</script>
+<!-- End Mieruca Embed Code -->
 </head>
 <body>
-<div id="cookiePopup">
-    <div>
-        <h2 style="text-align: center;">Cookie Consent</h2>
-        <a id="closeCookie" href="#" class="close"></a>
-    </div>
-    <p>Our website uses cookies to provide your browsing experience and relevant information.Before continuing to use
-        our website, you agree & accept of our <a href="#">Cookie Policy & Privacy</a></p>
-    <button id="acceptCookie">Accept</button>
-    <button id="redirected">Redirected</button>
-</div>
 <!-- header section start -->
 <div class="header_section">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
