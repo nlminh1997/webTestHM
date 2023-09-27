@@ -1,3 +1,4 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="viewport" content="initial-scale=1, maximum-scale=1">
 <!-- site metas -->
-<title>Index</title>
+<title>Template</title>
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta name="author" content=""> 
@@ -28,7 +29,7 @@
 <!-- owl stylesheets --> 
 <link rel="stylesheet" href="css/owl.carousel.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
-<!-- Begin Mieruca Embed Code -->
+  <!-- Begin Mieruca Embed Code -->
 <script type="text/javascript" id="mierucaOptimizejs">
         window.__optimizeid = window.__optimizeid || [];
         __optimizeid.push([1582185974]);
@@ -43,33 +44,32 @@
             x.parentNode.insertBefore(fjs, x);
         })();
     </script>
-
 <!-- End Mieruca Embed Code -->
 </head>
 <body>
     <!-- header section start -->
     <div class="header_section">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="logo"><a href="index.html"><img src="images/logo.png"></a></div>
+        <div class="logo"><a href="index.jsp"><img src="images/logo.png"></a></div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.jsp">HOME</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.jsp">ABOUT</a>
+            </li>
             <li class="nav-item active">
-              <a class="nav-link" href="index.html">HOME</a>
+              <a class="nav-link" href="template.jsp">OUR TEMPLATE</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about.html">ABOUT</a>
+              <a class="nav-link" href="providing.jsp">PROVIDING</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="template.html">OUR TEMPLATE</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="providing.html">PROVEDING</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">CONTACT US</a>
+              <a class="nav-link" href="contact.jsp">CONTACT US</a>
             </li>
           </ul>  
           <form class="form-inline my-2 my-lg-0">
@@ -80,84 +80,9 @@
         </div>
       </nav>
     </div>
-    <!-- header section end -->
-    <!-- banner section start -->
-    <div class="banner_section layout_padding">
-      <div class="container">
-        <div id="my_slider" class="carousel slide" data-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <div class="row">
-                <div class="col-md-6">
-                  <h1 class="banner_taital">Email mark provides <br> you a wonderful viewing experience </h1>
-                  <div class="contact_bt"><a href="contact.html">Contact Us</a></div>
-                </div>
-                <div class="col-md-6">
-                  <div class="image_1"><img src="images/img-1.png"></div>
-                </div>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <div class="row">
-                <div class="col-md-6">
-                  <h1 class="banner_taital">Email mark provides <br> you a wonderful viewing experience </h1>
-                  <div class="contact_bt"><a href="contact.html">Contact Us</a></div>
-                </div>
-                <div class="col-md-6">
-                  <div class="image_1"><img src="images/img-1.png"></div>
-                </div>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <div class="row">
-                <div class="col-md-6">
-                  <h1 class="banner_taital">Email mark provides <br> you a wonderful viewing experience </h1>
-                  <div class="contact_bt"><a href="contact.html">Contact Us</a></div>
-                </div>
-                <div class="col-md-6">
-                  <div class="image_1"><img src="images/img-1.png"></div>
-                </div>
-              </div>
-            </div>
-            <a class="carousel-control-prev" href="#my_slider" role="button" data-slide="prev">
-              <i class="fa fa-left"><img src="images/left-icon.png"></i>
-            </a>
-            <a class="carousel-control-next" href="#my_slider" role="button" data-slide="next">
-              <i class="fa fa-right"><img src="images/right-icon.png"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- banner section end -->
+    <!-- header section end --> 
     <!-- templet bg section start -->
     <div class="templet_bg">
-    <!-- email section start -->
-    <div class="email_section layout_padding">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="image_2"><img src="images/img-2.png"></div>
-          </div>
-          <div class="col-md-6">
-            <h1 class="mark_text">Mark email carefully for you</h1>
-            <p class="lorem_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quisLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quisLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore </p>
-            <div class="contact_bt"><a href="#">Read More</a></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- email section end --> 
-    <!-- solution section start -->
-    <div class="solution_section layout_padding">
-      <div class="container">
-        <h1 class="solution_text">Mark email is an all in one solution </h1>
-        <div class="image_3"><img src="images/img-3.png"></div>
-        <p class="ipsum_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quisLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quisLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore </p>
-        <div class="make_bt"><a href="#">Make Now</a></div>
-      </div>
-    </div>
-    <!-- solution section end --> 
     <!-- template section start -->
     <div class="template_section layout_padding">
       <div class="container">
@@ -231,36 +156,12 @@
       </div>
     </div>
     <!-- template section end -->
-    <!-- design section start -->
-    <div class="design_section layout_padding">
-      <div class="container">
-        <h1 class="solution_text">Wonderful marketing design</h1>
-        <div class="image_4"><img src="images/img-4.png"></div>
-        <p class="ipsum_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quisLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quisLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore </p>
-        <div class="make_bt"><a href="#">Make Now</a></div>
-      </div>
-    </div>
-    <!-- design section end --> 
-    <!-- contact section start -->
-    <div class="contact_section layout_padding">
-      <div class="container">
-        <h1 class="solution_text">Contact Us</h1>
-        <div class="mail_section">
-          <input type="" class="mail_text" placeholder="Name" name="Name">
-          <input type="" class="mail_text" placeholder="Phone Number" name="Phone Number">
-          <input type="" class="mail_text" placeholder="Email" name="Email">
-          <textarea class="massage_text" placeholder="Message" rows="5" id="comment" name="Message"></textarea>
-          <div class="send_bt"><a href="#">send</a></div>
-        </div>
-      </div>
-    </div>
-    <!-- contact section end -->
     <!-- footer section start -->
     <div class="footer_section layout_padding">
       <div class="container">
         <div class="row">
           <div class="col-lg-6 col-sm-12">
-            <div class="footer_logo"><a href="index.html"><img src="images/logo.png"></a></div>
+            <div class="footer_logo"><a href="index.jsp"><img src="images/logo.png"></a></div>
             <h4 class="contact_text">Contact Us</h4>
             <div class="call_section">
               <div class="call_section_left">
@@ -294,12 +195,12 @@
                 <h3 class="menus_text">Menus</h3>
                 <div class="menu_text">
                   <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="index.jsp">Home</a></li>
+                    <li><a href="about.jsp">About Us</a></li>
                     <li><a href="services.html">Services</a></li>
                     <li><a href="pages.html">Pages</a></li>
                     <li><a href="blog.html">Blog</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="contact.jsp">Contact Us</a></li>
                   </ul>
                 </div>
               </div>

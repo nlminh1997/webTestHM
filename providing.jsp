@@ -1,3 +1,4 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="viewport" content="initial-scale=1, maximum-scale=1">
 <!-- site metas -->
-<title>Contact</title>
+<title>Providing</title>
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta name="author" content=""> 
@@ -49,26 +50,26 @@
     <!-- header section start -->
     <div class="header_section">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="logo"><a href="index.html"><img src="images/logo.png"></a></div>
+        <div class="logo"><a href="index.jsp"><img src="images/logo.png"></a></div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">HOME</a>
+            <li class="nav-ite">
+              <a class="nav-link" href="index.jsp">HOME</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about.html">ABOUT</a>
+              <a class="nav-link" href="about.jsp">ABOUT</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="template.html">OUR TEMPLATE</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="providing.html">PROVEDING</a>
+              <a class="nav-link" href="template.jsp">OUR TEMPLATE</a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="contact.html">CONTACT US</a>
+              <a class="nav-link" href="providing.html">PROVIDING</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.jsp">CONTACT US</a>
             </li>
           </ul>  
           <form class="form-inline my-2 my-lg-0">
@@ -79,29 +80,25 @@
         </div>
       </nav>
     </div>
-    <!-- header section end -->
+    <!-- header section end --> 
     <!-- templet bg section start -->
-    <div class="templet_bg"> 
-    <!-- contact section start -->
-    <div class="contact_section layout_padding">
+    <div class="templet_bg">
+    <!-- solution section start -->
+    <div class="solution_section layout_padding">
       <div class="container">
-        <h1 class="solution_text">Contact Us</h1>
-        <div class="mail_section">
-          <input type="" class="mail_text" placeholder="Name" name="Name">
-          <input type="" class="mail_text" placeholder="Phone Number" name="Phone Number">
-          <input type="" class="mail_text" placeholder="Email" name="Email">
-          <textarea class="massage_text" placeholder="Message" rows="5" id="comment" name="Message"></textarea>
-          <div class="send_bt"><a href="#">send</a></div>
-        </div>
+        <h1 class="solution_text">Mark email is an all in one solution </h1>
+        <div class="image_3"><img src="images/img-3.png"></div>
+        <p class="ipsum_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quisLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quisLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore </p>
+        <div class="make_bt"><a href="#">Make Now</a></div>
       </div>
     </div>
-    <!-- contact section end -->
+    <!-- solution section end -->  
     <!-- footer section start -->
     <div class="footer_section layout_padding">
       <div class="container">
         <div class="row">
           <div class="col-lg-6 col-sm-12">
-            <div class="footer_logo"><a href="index.html"><img src="images/logo.png"></a></div>
+            <div class="footer_logo"><a href="index.jsp"><img src="images/logo.png"></a></div>
             <h4 class="contact_text">Contact Us</h4>
             <div class="call_section">
               <div class="call_section_left">
@@ -135,12 +132,12 @@
                 <h3 class="menus_text">Menus</h3>
                 <div class="menu_text">
                   <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="index.jsp">Home</a></li>
+                    <li><a href="about.jsp">About Us</a></li>
                     <li><a href="services.html">Services</a></li>
                     <li><a href="pages.html">Pages</a></li>
                     <li><a href="blog.html">Blog</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="contact.jsp">Contact Us</a></li>
                   </ul>
                 </div>
               </div>
