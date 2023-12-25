@@ -211,57 +211,6 @@ f=false,w=window,d=document,v=d.querySelector('#vwoCode'),cK='_vwo_'+account_id+
 </div>
 <!-- copyright section end -->
 <!-- Javascript files-->
-<script type="text/javascript">
-    // set cookie according to you
-    var cookieName = "MierucaCookiePolicy";
-    var cookieValue = "Agreed";
-    var cookieExpireDays = 30;
-    // when users click accept button
-    document.getElementById("acceptCookie").onclick = function () {
-        let currentDate = new Date();
-        currentDate.setTime(currentDate.getTime() + (cookieExpireDays * 24 * 60 * 60 * 1000));
-        let expires = "expires=" + currentDate.toGMTString();
-        document.cookie = cookieName + "=" + cookieValue + ";" + expires + ";path=/";
-        if (document.cookie) {
-            document.getElementById("#cookiePopup").style.display = "none";
-        } else {
-            alert("Unable to set cookie. Please allow all cookies site from cookie setting of your browser");
-        }
-    }
-    // get cookie from the web browser
-    let getCookie = function (cookieName) {
-        let name = cookieName + "=";
-        let decodedCookie = decodeURIComponent(document.cookie);
-        let ca = decodedCookie.split(';');
-        for (let i = 0; i < ca.length; i++) {
-            let c = ca[i];
-            while (c.charAt(0) === ' ') {
-                c = c.substring(1);
-            }
-            if (c.indexOf(name) === 0) {
-                return c.substring(name.length, c.length);
-            }
-        }
-        return "";
-    }
-    // Close cookie policy
-    document.getElementById("closeCookie").onclick = function () {
-        document.getElementById("cookiePopup").style.display = "none";
-    }
-    // check cookie is set or not
-    let checkCookie = function () {
-        let check = getCookie(cookieName);
-        if (check === "") {
-            document.getElementById("cookiePopup").style.display = "block";
-        } else {
-            document.getElementById("cookiePopup").style.display = "none";
-        }
-    }
-    checkCookie();
-    document.getElementById("redirected").onclick = function () {
-        location.assign("https://nlminh1997.github.io/webTestHM/index")
-    }
-</script>
 <script src="js/jquery.min.js"></script>
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.bundle.min.js"></script>
