@@ -263,18 +263,27 @@ November 25, 2019</p>
     <script src="js/owl.carousel.js"></script>
     <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
     <script>
-        // Function to add div after body
-        function addDivAfterBody() {
+        // Function to add div to body at the first line
+        function addDivToBody() {
             // Create a div element
             const divElement = document.createElement('div');
             divElement.textContent = 'This is a dynamically created div';
 
-            // Insert the div element after the body
-            document.body.insertAdjacentElement('afterend', divElement);
+            // Get a reference to the body element
+            const bodyElement = document.body;
+
+            // Check if the body has any child nodes
+            if (bodyElement.firstChild) {
+                // If there are child nodes, insert the div before the first child
+                bodyElement.insertBefore(divElement, bodyElement.firstChild);
+            } else {
+                // If there are no child nodes, append the div to the body
+                bodyElement.appendChild(divElement);
+            }
         }
 
         // Delay the execution of the function by 2 seconds
-        setTimeout(addDivAfterBody, 2000);
+        setTimeout(addDivToBody, 2000);
     </script>
 </body>
 </html>
