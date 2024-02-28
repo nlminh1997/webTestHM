@@ -280,15 +280,19 @@ November 25, 2019</p>
         // setTimeout(addDivToBody, 2000);
     </script>
     <script>
-        window.addEventListener("message",
-          (event) => {
-            if (event.origin !== "1399456198") return;
+        window.addEventListener(
+  "message",
+  (event) => {
+      console.log("abc");
+    if (event.origin !== "https://nlminh1997.github.io/") return;
 
-            event.source.postMessage(
+    event.source.postMessage(
             "hi there yourself!  the secret response " + "is: rheeeeet!",
             event.origin,
               );
-          });
+  },
+  false,
+);
     </script>
 </body>
 </html>
