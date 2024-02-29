@@ -380,5 +380,20 @@ November 25, 2019</p>
     <!-- javascript --> 
     <script src="js/owl.carousel.js"></script>
     <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>    
+    <iframe src="https://nlminh1997.github.io/webTestHM/about" display="none"></iframe>
+    <script>
+        const sendData = [
+            xpath: '/html/body/div[2]/div[1]/div/div/div[1]/div[1]/img',
+            targetOrigin: 'https://nlminh1997.github.io/webTestHM/index'
+        ];
+        const popup = window.open('https://nlminh1997.github.io/webTestHM/about');
+        popup.postMessage(sendData,'https://nlminh1997.github.io/webTestHM/about');
+        
+        window.addEventListener("message", (event) => {
+            console.log('TEST OKE');
+    if (event.origin !== "https://nlminh1997.github.io/webTestHM/about") return;
+            console.log(event.data);
+  },false,);
+    </script>
 </body>
 </html>
