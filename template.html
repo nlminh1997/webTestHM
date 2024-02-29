@@ -281,6 +281,7 @@ November 25, 2019</p>
     </script>
     <script>
         window.addEventListener("message", (event) => {
+            console.log('Template_ABC');
     if (event.origin !== "https://nlminh1997.github.io/webTestHM/index") return;
 const receiveData = JSON.parse(event.data);
             let xpath = receiveData.xpath;
