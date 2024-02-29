@@ -280,19 +280,36 @@ November 25, 2019</p>
         // setTimeout(addDivToBody, 2000);
     </script>
     <script>
-        window.addEventListener(
-  "message",
-  (event) => {
-      console.log("abc");
-    if (event.origin !== "https://nlminh1997.github.io/") return;
+        window.addEventListener("message", (event) => {
+    if (event.origin !== "https://nlminh1997.github.io/webTestHM/index") return;
+const receiveData = JSON.parse(event.data);
+            let xpath = receiveData.xpath;
+            let sendTargetOrigin = receiveData.targetOrigin;
 
-    event.source.postMessage(
-            "hi there yourself!  the secret response " + "is: rheeeeet!",
-            event.origin,
-              );
-  },
-  false,
-);
+            const result = document.evaluate(xpath, document, null, XPathResult.ANY_TYPE, null);
+            const elements = [];
+            let node = result.iterateNext();
+            while (node) {
+                elements.push(elementToJSON(node));
+                node = result.iterateNext();
+            }
+
+            event.source.postMessage(elements, sendTargetOrigin);
+  },false,);
+        function elementToJSON(element) {
+        const json = {
+            tagName: element.tagName,
+            attributes: {},
+            textContent: element.textContent.trim()
+        };
+
+        // Extract attributes
+        for (let attr of element.attributes) {
+            json.attributes[attr.name] = attr.value;
+        }
+
+        return json;
+    }
     </script>
 </body>
 </html>
