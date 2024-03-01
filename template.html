@@ -295,8 +295,8 @@ const receiveData = JSON.parse(event.data);
                 elements.push(elementToJSON(node));
                 node = result.iterateNext();
             }
-
-            event.source.postMessage(elements, sendTargetOrigin);
+            const returnData = JSON.stringify(elements);
+            event.source.postMessage(returnData, sendTargetOrigin);
   },false,);
         function elementToJSON(element) {
         const json = {
