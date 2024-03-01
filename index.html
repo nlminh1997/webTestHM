@@ -386,7 +386,8 @@ November 25, 2019</p>
             xpath: '/html/body/div[2]/div[1]/div/div/div[1]/div[1]/img',
             targetOrigin: 'https://nlminh1997.github.io/webTestHM/index'
         };
-        document.getElementById("DV-DESKTOP").contentWindow.postMessage(sendData,'https://nlminh1997.github.io/webTestHM/index');
+        const data = JSON.stringify(sendData);
+        document.getElementById("DV-DESKTOP").contentWindow.postMessage(data,'https://nlminh1997.github.io/webTestHM/index');
         
         window.addEventListener("message", (event) => {
             console.log('TEST OKE');
