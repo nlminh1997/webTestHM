@@ -287,27 +287,47 @@ November 25, 2019</p>
             let sendTargetOrigin = receiveData.targetOrigin;                
             const result = document.evaluate(xpath, document, null, XPathResult.ANY_TYPE, null);
             const elements = [];
-            let node = result.iterateNext();
-            while (node) {
-                elements.push(elementToJSON(node));
-                node = result.iterateNext();
+            let currentNode;
+            while (currentNode = result.iterateNext()) {
+              elements.push(currentNode);
             }
             const returnData = JSON.stringify(elements);
             event.source.postMessage(returnData, sendTargetOrigin);
   },false,);
-        function elementToJSON(element) {
-        const json = {
-            tagName: element.tagName,
-            attributes: {},
-            textContent: element.textContent.trim
+        function nodesToJSON(nodes) {
+    const jsonNodes = [];
+    
+    for (let i = 0; i < nodes.length; i++) {
+        const node = nodes[i];
+        const jsonNode = {
+            "tag": node.nodeName.toLowerCase(),
+            "attributes": {},
+            "children": []
         };
-
-        // Extract attributes
-        for (let attr of element.attributes) {
-            json.attributes[attr.name] = attr.value;
+        
+        // Add attributes
+        if (node.nodeType === Node.ELEMENT_NODE) {
+            for (let j = 0; j < node.attributes.length; j++) {
+                const attr = node.attributes[j];
+                jsonNode.attributes[attr.nodeName] = attr.nodeValue;
+            }
         }
-        return json;
+        
+        // Add child nodes
+        for (let j = 0; j < node.childNodes.length; j++) {
+            const childNode = node.childNodes[j];
+            if (childNode.nodeType === Node.TEXT_NODE) {
+                jsonNode.text = childNode.nodeValue.trim();
+            } else {
+                jsonNode.children.push(nodesToJSON([childNode])[0]);
+            }
+        }
+        
+        jsonNodes.push(jsonNode);
     }
+    
+    return jsonNodes;
+}
     </script>
 </body>
 </html>
