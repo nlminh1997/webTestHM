@@ -401,8 +401,8 @@ November 25, 2019</p>
         document.getElementById("DV-DESKTOP").contentWindow.postMessage(data, 'https://nlminh1997.github.io/webTestHM/index');
         
         window.addEventListener("message", (event) => {
-            console.log('TEST OKE : ' + event.origin);
-    if (event.origin !== "https://nlminh1997.github.io/webTestHM/template") return;
+    //         console.log('TEST OKE : ' + event.origin);
+    // if (event.origin !== "https://nlminh1997.github.io/webTestHM/template") return;
             console.log(event.data);
   },false,);
         };
