@@ -122,6 +122,7 @@ f=false,w=window,d=document,v=d.querySelector('#vwoCode'),cK='_vwo_'+account_id+
     <div class="solution_section layout_padding">
       <div class="container">
         <h1 class="solution_text">Mark email is an all in one solution </h1>
+          <div class="make_bt"><a  onclick="getDevice()">Make Now</a></div>
         <div class="image_3"><img src="images/img-3.png"></div>
         <p class="ipsum_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quisLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quisLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore </p>
         <div class="make_bt"><a id="test" href="https://mieru-ca.com" target="_blank">Make Now</a></div>
@@ -215,5 +216,19 @@ November 25, 2019</p>
     <!-- javascript --> 
     <script src="js/owl.carousel.js"></script>
     <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>    
+    <script>
+        function getDevice() {
+            var mobilePattern = /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/,
+                tabletPattern = /(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i,
+                userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            if (mobilePattern.test(userAgent)) {
+                console.log("MOBILE");
+            }
+            if (tabletPattern.test(userAgent)) {
+                console.log("TABLET");
+            }
+            console.log("DESKTOP");
+        }
+    </script>
 </body>
 </html>
