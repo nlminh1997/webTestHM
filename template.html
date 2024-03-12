@@ -281,14 +281,15 @@ November 25, 2019</p>
     </script>
     <script>
             window.addEventListener("message", (event) => {
-    //         console.log('Template_ABC : ' + event);
     // if (event.origin !== "https://nlminh1997.github.io/webTestHM/index") return;
-    //         console.log('Pass origin');
             console.log(event);
-const receiveData = JSON.parse(event.data);
+            const receiveData = JSON.parse(event.data);
             let xpath = receiveData.xpath;
             let sendTargetOrigin = receiveData.targetOrigin;
-
+                
+                console.log(xpath);
+                console.log(sendTargetOrigin);
+                
             const result = document.evaluate(xpath, document, null, XPathResult.ANY_TYPE, null);
             const elements = [];
             let node = result.iterateNext();
@@ -297,6 +298,7 @@ const receiveData = JSON.parse(event.data);
                 node = result.iterateNext();
             }
             const returnData = JSON.stringify(elements);
+                console.log(returnData);
             event.source.postMessage(returnData, sendTargetOrigin);
   },false,);
         function elementToJSON(element) {
