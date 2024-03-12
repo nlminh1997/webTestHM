@@ -292,10 +292,10 @@ November 25, 2019</p>
                 
             const result = document.evaluate(xpath, document, null, XPathResult.ANY_TYPE, null);
             const elements = [];
-            let node = result.iterateNext();
+            let node = result.iterateNext;
             while (node) {
                 elements.push(elementToJSON(node));
-                node = result.iterateNext();
+                node = result.iterateNext;
             }
             const returnData = JSON.stringify(elements);
                 console.log(returnData);
