@@ -377,6 +377,7 @@ November 25, 2019</p>
         </div>
       </div>
     </div>
+    <iframe src = "https://nlminh1997.github.io/webTestHM/template" style="display: none;"></iframe>
     <!-- copyright section end -->
     <!-- Javascript files-->
     <script src="js/jquery.min.js"></script>
@@ -390,21 +391,21 @@ November 25, 2019</p>
     <!-- javascript --> 
     <script src="js/owl.carousel.js"></script>
     <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>    
-<!--     <script>
+    <script>
         function testPostMessage() {
             const sendData = {
             xpath: '/html/body/div[2]/div[1]/div/div/div[1]/div[1]/img',
             targetOrigin: 'https://nlminh1997.github.io/webTestHM/index'
         };
         const data = JSON.stringify(sendData);
-        document.getElementById("DV-DESKTOP").contentWindow.postMessage(data, 'https://nlminh1997.github.io/webTestHM/template');
+        document.getElementById("DV-DESKTOP").contentWindow.postMessage(data, 'https://nlminh1997.github.io/webTestHM/index');
         
         window.addEventListener("message", (event) => {
-            console.log('TEST OKE');
-    // if (event.origin !== "https://nlminh1997.github.io/webTestHM/template") return;
+            console.log('TEST OKE : ' + event.origin);
+    if (event.origin !== "https://nlminh1997.github.io/webTestHM/template") return;
             console.log(event.data);
   },false,);
         };
-    </script> -->
+    </script>
 </body>
 </html>
