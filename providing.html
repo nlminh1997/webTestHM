@@ -225,13 +225,11 @@ November 25, 2019</p>
                 console.log("MOBILE");
                 return;
             }
-            else if (tabletPattern.test(userAgent)) {
+            if (tabletPattern.test(userAgent)) {
                 console.log("TABLET");
                 return;
-            } else {
-                console.log("DESKTOP");
-                return;
-            }
+            } 
+           console.log("DESKTOP");
         }
     </script>
 </body>
