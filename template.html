@@ -286,12 +286,12 @@ November 25, 2019</p>
             let xpath = receiveData.xpath;
             let sendTargetOrigin = receiveData.targetOrigin;                
             const result = document.evaluate(xpath, document, null, XPathResult.ANY_TYPE, null);
-            const elements = [];
+            const nodes = [];
             let currentNode;
             while (currentNode = result.iterateNext()) {
-              elements.push(currentNode);
+              nodes.push(currentNode);
             }
-            const returnData = JSON.stringify(elements);
+            const returnData = nodesToJSON(nodes);
             event.source.postMessage(returnData, sendTargetOrigin);
   },false,);
         function nodesToJSON(nodes) {
