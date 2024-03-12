@@ -219,7 +219,7 @@ November 25, 2019</p>
     <script>
         function getDevice() {
             var mobilePattern = /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/,
-                tabletPattern = /(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i,
+                tabletPattern = /(tablet|iPad|playbook|silk)|(android(?!.*mobi))/i,
                 userAgent = navigator.userAgent || navigator.vendor || window.opera;
             if (mobilePattern.test(userAgent)) {
                 console.log("MOBILE");
