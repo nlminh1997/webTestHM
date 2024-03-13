@@ -222,14 +222,14 @@ November 25, 2019</p>
                 tabletPattern = /(tablet|ipad|playbook|silk)|(android(?!.*mobi))/i,
                 userAgent = navigator.userAgent || navigator.vendor || window.opera;
             if (tabletPattern.test(userAgent)) {
-                console.log("TABLET");
+                window.alert("TABLET");
                 return;
             } 
             if (mobilePattern.test(userAgent)) {
-                console.log("MOBILE");
+                window.alert("MOBILE");
                 return;
             }
-           console.log("DESKTOP");
+           window.alert("DESKTOP");
         }
         function getDeviceOld() {
             var fullPattern = /(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i,
@@ -237,14 +237,14 @@ November 25, 2019</p>
                     tabletPattern = /android|ipad|playbook|silk/i,
                     userAgent = navigator.userAgent || navigator.vendor || window.opera;
             if (fullPattern.test(userAgent) || shortPattern.test(userAgent.substr(0, 4))) {
-                console.log("MOBILE");
+                window.alert("MOBILE");
                 return;
             } 
             if (tabletPattern.test(userAgent)) {
-                console.log("TABLET");
+                window.alert("TABLET");
                 return;
             }
-           console.log("DESKTOP");
+           window.alert("DESKTOP");
         }
     </script>
 </body>
