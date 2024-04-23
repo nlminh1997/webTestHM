@@ -37,52 +37,38 @@ fjs.async = true;fjs.id = "fjssync";var timestamp = new Date;fjs.src = 'https://
 var x = document.getElementsByTagName('script')[0];x.parentNode.insertBefore(fjs, x);})();
 </script> -->
 <!-- DEV -->
-<!-- <script type="text/javascript" id="mierucaOptimizejs">
+<script type="text/javascript" id="mierucaOptimizejs">
 window.__optimizeid = window.__optimizeid || [];__optimizeid.push([1582185974]);
 (function () {var fjs = document.createElement('script');fjs.type = 'text/javascript';
 fjs.async = true;fjs.id = "fjssync";var timestamp = new Date;fjs.src = 'https://dev.opt.mieru-ca.com/service/js/mieruca-optimize.js?v=' + timestamp.getTime();
 var x = document.getElementsByTagName('script')[0];x.parentNode.insertBefore(fjs, x);})();
-</script> -->
+</script> 
 <!-- LOCAL -->
-<script type="text/javascript" id="mierucaOptimizejs">
-window.__optimizeid = window.__optimizeid || [];__optimizeid.push([1133039698]);
-(function () {var fjs = document.createElement('script');fjs.type = 'text/javascript';
-fjs.async = true;fjs.id = "fjssync";var timestamp = new Date;fjs.src = 'http://localhost:8082/mieruca-optimize?v=' + timestamp.getTime();
-var x = document.getElementsByTagName('script')[0];x.parentNode.insertBefore(fjs, x);})();
-</script>
+<!--<script type="text/javascript" id="mierucaOptimizejs">-->
+<!--window.__optimizeid = window.__optimizeid || [];__optimizeid.push([1133039698]);-->
+<!--(function () {var fjs = document.createElement('script');fjs.type = 'text/javascript';-->
+<!--fjs.async = true;fjs.id = "fjssync";var timestamp = new Date;fjs.src = 'http://localhost:8082/mieruca-optimize?v=' + timestamp.getTime();-->
+<!--var x = document.getElementsByTagName('script')[0];x.parentNode.insertBefore(fjs, x);})();-->
+<!--</script>-->
 <!-- End Mieruca Optimize Tag -->
 <!-- Begin Mieruca Embed Code PROD -->
-<script type="text/javascript" id="mierucajs">
-window.__fid = window.__fid || [];__fid.push([306849143]);
-(function() {
-function mieruca(){if(typeof window.__fjsld != "undefined") return; window.__fjsld = 1; var fjs = document.createElement('script'); fjs.type = 'text/javascript'; fjs.async = true; fjs.id = "fjssync"; var timestamp = new Date;fjs.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://hm.mieru-ca.com/service/js/mieruca-hm.js?v='+ timestamp.getTime(); var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(fjs, x); };
-setTimeout(mieruca, 500); document.readyState != "complete" ? (window.attachEvent ? window.attachEvent("onload", mieruca) : window.addEventListener("load", mieruca, false)) : mieruca();
-})();
-</script>
+<!--<script type="text/javascript" id="mierucajs">-->
+<!--window.__fid = window.__fid || [];__fid.push([306849143]);-->
+<!--(function() {-->
+<!--function mieruca(){if(typeof window.__fjsld != "undefined") return; window.__fjsld = 1; var fjs = document.createElement('script'); fjs.type = 'text/javascript'; fjs.async = true; fjs.id = "fjssync"; var timestamp = new Date;fjs.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://hm.mieru-ca.com/service/js/mieruca-hm.js?v='+ timestamp.getTime(); var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(fjs, x); };-->
+<!--setTimeout(mieruca, 500); document.readyState != "complete" ? (window.attachEvent ? window.attachEvent("onload", mieruca) : window.addEventListener("load", mieruca, false)) : mieruca();-->
+<!--})();-->
+<!--</script>-->
 <!-- End Mieruca Embed Code -->
 <!-- Begin Mieruca Embed Code DEV -->
-<!-- <script type="text/javascript" id="mierucajs">
+<script type="text/javascript" id="mierucajs">
 window.__fid = window.__fid || [];__fid.push([995038677]);
 (function() {
 function mieruca(){if(typeof window.__fjsld != "undefined") return; window.__fjsld = 1; var fjs = document.createElement('script'); fjs.type = 'text/javascript'; fjs.async = true; fjs.id = "fjssync"; var timestamp = new Date;fjs.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://hm.mieru-ca.com/service/js/mieruca-hm.js?v='+ timestamp.getTime(); var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(fjs, x); };
 setTimeout(mieruca, 500); document.readyState != "complete" ? (window.attachEvent ? window.attachEvent("onload", mieruca) : window.addEventListener("load", mieruca, false)) : mieruca();
 })();
-</script> -->
-<!-- End Mieruca Embed Code -->
-<!-- Start VWO Async SmartCode -->
-<link rel="preconnect" href="https://dev.visualwebsiteoptimizer.com" />
-<script type='text/javascript' id='vwoCode'>
-window._vwo_code || (function() {
-var account_id=787762,
-version=2.0,
-settings_tolerance=2000,
-hide_element='body',
-hide_element_style = 'opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important',
-/* DO NOT EDIT BELOW THIS LINE */
-f=false,w=window,d=document,v=d.querySelector('#vwoCode'),cK='_vwo_'+account_id+'_settings',cc={};try{var c=JSON.parse(localStorage.getItem('_vwo_'+account_id+'_config'));cc=c&&typeof c==='object'?c:{}}catch(e){}var stT=cc.stT==='session'?w.sessionStorage:w.localStorage;code={use_existing_jquery:function(){return typeof use_existing_jquery!=='undefined'?use_existing_jquery:undefined},library_tolerance:function(){return typeof library_tolerance!=='undefined'?library_tolerance:undefined},settings_tolerance:function(){return cc.sT||settings_tolerance},hide_element_style:function(){return'{'+(cc.hES||hide_element_style)+'}'},hide_element:function(){return typeof cc.hE==='string'?cc.hE:hide_element},getVersion:function(){return version},finish:function(){if(!f){f=true;var e=d.getElementById('_vis_opt_path_hides');if(e)e.parentNode.removeChild(e)}},finished:function(){return f},load:function(e){var t=this.getSettings(),n=d.createElement('script'),i=this;if(t){n.textContent=t;d.getElementsByTagName('head')[0].appendChild(n);if(!w.VWO||VWO.caE){stT.removeItem(cK);i.load(e)}}else{n.fetchPriority='high';n.src=e;n.type='text/javascript';n.onerror=function(){_vwo_code.finish()};d.getElementsByTagName('head')[0].appendChild(n)}},getSettings:function(){try{var e=stT.getItem(cK);if(!e){return}e=JSON.parse(e);if(Date.now()>e.e){stT.removeItem(cK);return}return e.s}catch(e){return}},init:function(){if(d.URL.indexOf('__vwo_disable__')>-1)return;var e=this.settings_tolerance();w._vwo_settings_timer=setTimeout(function(){_vwo_code.finish();stT.removeItem(cK)},e);var t=d.currentScript,n=d.createElement('style'),i=this.hide_element(),r=t&&!t.async&&i?i+this.hide_element_style():'',c=d.getElementsByTagName('head')[0];n.setAttribute('id','_vis_opt_path_hides');v&&n.setAttribute('nonce',v.nonce);n.setAttribute('type','text/css');if(n.styleSheet)n.styleSheet.cssText=r;else n.appendChild(d.createTextNode(r));c.appendChild(n);this.load('https://dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&u='+encodeURIComponent(d.URL)+'&vn='+version)}};w._vwo_code=code;code.init();})();
 </script>
-<!-- End VWO Async SmartCode -->
-
+<!-- End Mieruca Embed Code -->
 </head>
 <body>
     <!-- header section start -->
@@ -298,7 +284,7 @@ f=false,w=window,d=document,v=d.querySelector('#vwoCode'),cK='_vwo_'+account_id+
       <div class="container">
         <div class="row">
           <div class="col-lg-6 col-sm-12">
-            <div class="footer_logo"><a href="index.html"><img src="images/logo.png"></a></div>
+            <div class="footer_logo"><a href="index"><img src="images/logo.png"></a></div>
             <h4 class="contact_text">Contact Us</h4>
             <div class="call_section">
               <div class="call_section_left">
@@ -332,12 +318,12 @@ f=false,w=window,d=document,v=d.querySelector('#vwoCode'),cK='_vwo_'+account_id+
                 <h3 class="menus_text">Menus</h3>
                 <div class="menu_text">
                   <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="pages.html">Pages</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="index">Home</a></li>
+                    <li><a href="about">About Us</a></li>
+                    <li><a href="services">Services</a></li>
+                    <li><a href="pages">Pages</a></li>
+                    <li><a href="blog">Blog</a></li>
+                    <li><a href="contact">Contact Us</a></li>
                   </ul>
                 </div>
               </div>
