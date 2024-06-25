@@ -330,9 +330,19 @@ November 25, 2019</p>
       function arrayBufferToHex(buffer) {
         return Array.prototype.map.call(new Uint8Array(buffer), function() {('00' + x.toString(16)).slice(-2)}).join('');
       }
+      function encodeUTF8(str) {
+        if (typeof TextEncoder !== 'undefined') {
+          // Modern browsers supporting TextEncoder
+          const encoder = new TextEncoder();
+          return encoder.encode(str);
+        } else {
+          // Fallback for IE11 or older browsers
+          return unescape(encodeURIComponent(str));
+        }
+      }
+
       function hashWithSHA256(text) {
-        const encoder = new TextEncoder();
-        const data = encoder.encode(text);
+        const data = encodeUTF8(text);
 
         if (window.msCrypto && window.msCrypto.subtle) {
           // IE11
