@@ -326,5 +326,31 @@ November 25, 2019</p>
     <!-- javascript --> 
     <script src="js/owl.carousel.js"></script>
     <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+    <script>
+      function arrayBufferToHex(buffer) {
+        return Array.prototype.map.call(new Uint8Array(buffer), x => ('00' + x.toString(16)).slice(-2)).join('');
+      }
+      function hashWithSHA256(text) {
+        const encoder = new TextEncoder();
+        const data = encoder.encode(text);
+
+        if (window.msCrypto && window.msCrypto.subtle) {
+          // IE11
+          const operation = window.msCrypto.subtle.digest('SHA-256', data);
+          operation.oncomplete = function(event) {
+            const hashBuffer = event.target.result;
+            const hashHex = arrayBufferToHex(hashBuffer);
+            console.log('SHA-256 hash:', hashHex);
+          };
+          operation.onerror = function(error) {
+            console.error('Error hashing:', error);
+          };
+        } else {
+          console.error('Crypto API not supported');
+        }
+      }
+      const exampleString = 'avc12123';
+      hashWithSHA256(exampleString);
+    </script>
 </body>
 </html>
