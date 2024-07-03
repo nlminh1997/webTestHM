@@ -37,11 +37,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 </head>
 <body>
-  <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WTRKSV6N"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-    <!-- header section start -->
     <div class="header_section">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="logo"><a href="index"><img src="images/logo.png"></a></div>
@@ -74,8 +71,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </nav>
     </div>
-    <!-- header section end -->
-    <!-- banner section start -->
     <div class="banner_section layout_padding">
       <div class="container">
         <div id="my_slider" class="carousel slide" data-ride="carousel">
@@ -112,10 +107,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
     </div>
-    <!-- banner section end -->
-    <!-- templet bg section start -->
     <div class="templet_bg">
-    <!-- email section start -->
     <div class="email_section layout_padding">
       <div class="container">
         <div class="row">
@@ -130,8 +122,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
     </div>
-    <!-- email section end --> 
-    <!-- solution section start -->
     <div class="solution_section layout_padding">
       <div class="container">
         <h1 class="solution_text">Mark email is an all in one solution </h1>
@@ -140,8 +130,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="make_bt"><a href="#">Make Now</a></div>
       </div>
     </div>
-    <!-- solution section end --> 
-    <!-- template section start -->
     <div class="template_section layout_padding">
       <div class="container">
         <h1 class="solution_text">Our Template</h1>
@@ -213,8 +201,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
     </div>
-    <!-- template section end -->
-    <!-- design section start -->
     <div class="design_section layout_padding">
       <div class="container">
         <h1 class="solution_text">Wonderful marketing design</h1>
@@ -223,8 +209,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="make_bt"><a href="#">Make Now</a></div>
       </div>
     </div>
-    <!-- design section end --> 
-    <!-- contact section start -->
     <div class="contact_section layout_padding">
       <div class="container">
         <h1 class="solution_text">Contact Us</h1>
@@ -237,8 +221,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
     </div>
-    <!-- contact section end -->
-    <!-- footer section start -->
     <div class="footer_section layout_padding">
       <div class="container">
         <div class="row">
@@ -301,82 +283,22 @@ November 25, 2019</p>
         </div>
       </div>
     </div>
-    <!-- footer section end -->
     </div>
-    <!-- templet bg section end -->
-    <!-- copyright section start -->
     <div class="copyright_section">
       <div class="container">
         <div class="copyright_text">2019 All Rights Reserved. Design by <a href="https://html.design">Free html  Templates</a>
           <span class="teams_text">Terms of Service        Privacy</span>
         </div>
       </div>
-<!--         <iframe id="DV-DESKTOP" src="https://nlminh1997.github.io/webTestHM/template"></iframe> -->
     </div>
-    <!-- copyright section end -->
-    <!-- Javascript files-->
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/jquery-3.0.0.min.js"></script>
     <script src="js/plugin.js"></script>
-    <!-- sidebar -->
     <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="js/custom.js"></script>
-    <!-- javascript --> 
     <script src="js/owl.carousel.js"></script>
     <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
-    <script>
-      function encodeUTF8(str) {
-        if (typeof TextEncoder !== 'undefined') {
-          // Modern browsers supporting TextEncoder
-          const encoder = new TextEncoder();
-          return encoder.encode(str);
-        } else {
-          // Fallback for IE11 or older browsers
-          return unescape(encodeURIComponent(str));
-        }
-      }
-
-      function hashWithSHA256(text) {
-        const data = encodeUTF8(text);
-
-        if (window.msCrypto && window.msCrypto.subtle) {
-            return new Promise(function(resolve, reject) {
-              // Convert input string to byte array
-              var msgBuffer = new TextEncoder().encode(input);
-
-              // Create hash algorithm provider
-              var cryptoProvider = window.msCrypto.subtle;
-              var hashAlgorithm = { name: "SHA-256" };
-
-              // Create hash
-              cryptoProvider.digest(hashAlgorithm, msgBuffer).then(function(hashBuffer) {
-                // Convert buffer to array
-                var hashArray = Array.from(new Uint8Array(hashBuffer));
-
-                // Convert bytes to hexadecimal string
-                var hashHex = hashArray.map(function(byte) {
-                  return ('00' + byte.toString(16)).slice(-2);
-                }).join('');
-
-                // Resolve with hash value
-                resolve(hashHex);
-              }, function(err) {
-                // Reject if an error occurs
-                reject(err);
-              });
-            });
-        } else {
-          console.error('Crypto API not supported');
-        }
-      }
-      const exampleString = 'avc12123';
-      hashWithSHA256(exampleString).then(function(hash) {
-        console.log(hash);
-      }).catch(function(err) {
-        console.error(err);
-      });
-    </script>
 </body>
 </html>
