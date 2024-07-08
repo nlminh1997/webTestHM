@@ -326,57 +326,5 @@ November 25, 2019</p>
     <!-- javascript --> 
     <script src="js/owl.carousel.js"></script>
     <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
-    <script>
-      function encodeUTF8(str) {
-        if (typeof TextEncoder !== 'undefined') {
-          // Modern browsers supporting TextEncoder
-          const encoder = new TextEncoder();
-          return encoder.encode(str);
-        } else {
-          // Fallback for IE11 or older browsers
-          return unescape(encodeURIComponent(str));
-        }
-      }
-
-      function hashWithSHA256(text) {
-        const data = encodeUTF8(text);
-
-        if (window.msCrypto && window.msCrypto.subtle) {
-            return new Promise(function(resolve, reject) {
-              // Convert input string to byte array
-              var msgBuffer = new TextEncoder().encode(input);
-
-              // Create hash algorithm provider
-              var cryptoProvider = window.msCrypto.subtle;
-              var hashAlgorithm = { name: "SHA-256" };
-
-              // Create hash
-              cryptoProvider.digest(hashAlgorithm, msgBuffer).then(function(hashBuffer) {
-                // Convert buffer to array
-                var hashArray = Array.from(new Uint8Array(hashBuffer));
-
-                // Convert bytes to hexadecimal string
-                var hashHex = hashArray.map(function(byte) {
-                  return ('00' + byte.toString(16)).slice(-2);
-                }).join('');
-
-                // Resolve with hash value
-                resolve(hashHex);
-              }, function(err) {
-                // Reject if an error occurs
-                reject(err);
-              });
-            });
-        } else {
-          console.error('Crypto API not supported');
-        }
-      }
-      const exampleString = 'avc12123';
-      hashWithSHA256(exampleString).then(function(hash) {
-        console.log(hash);
-      }).catch(function(err) {
-        console.error(err);
-      });
-    </script>
 </body>
 </html>
