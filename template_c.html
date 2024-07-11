@@ -39,39 +39,42 @@
 </div>
 
 <script>
-  $('.file-input-image').on('change', function(event) {
-    var file = event.target.files[0];
-    if (file) {
-      var reader = new FileReader();
-      reader.onload = function(e) {
-        const arrayBuffer = event.target.result;
-        const message = {
-          action: 'IMAGE_UPLOAD',
-          type: 'fileUpload',
-          file: arrayBuffer,
-          fileName: file.name,
-          fileType: file.type
+  const handleUploadImage = () => {
+    $('.file-input-image').on('change', function(event) {
+      var file = event.target.files[0];
+      if (file) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+          const arrayBuffer = event.target.result;
+          const message = {
+            action: 'IMAGE_UPLOAD',
+            type: 'fileUpload',
+            file: arrayBuffer,
+            fileName: file.name,
+            fileType: file.type
+          };
+          opener.postMessage(message, 'https://app.mieru-ca.com');
+          var img = new Image();
+          img.onload = function() {
+            var width = img.width;
+            var height = img.height;
+            $('#mieruca_optimize_image_width').val(width);
+            $('#mieruca_optimize_image_height').val(height);
+          };
         };
-        opener.postMessage(message, 'https://app.mieru-ca.com');
-        var img = new Image();
-        img.onload = function() {
-          var width = img.width;
-          var height = img.height;
-          $('#mieruca_optimize_image_width').val(width);
-          $('#mieruca_optimize_image_height').val(height);
-        };
-      };
-      reader.readAsDataURL(file);
-    }
-  });
+        reader.readAsDataURL(file);
+      }
+    });
 
-  window.addEventListener('message', (event) => {
-    if (event.origin !== 'https://app.mieru-ca.com') return;
+    window.addEventListener('message', (event) => {
+      if (event.origin !== 'https://app.mieru-ca.com') return;
 
-    $('#mieruca_optimize_image_link').val(event.data.imageSrc);
-    $('#mieruca_optimize_image_link_src').attr('src', event.data.imageSrc);
-    $('#mieruca_optimize_image_alt').val(event.data.imageName);
-  });
+      $('#mieruca_optimize_image_link').val(event.data.imageSrc);
+      $('#mieruca_optimize_image_link_src').attr('src', event.data.imageSrc);
+      $('#mieruca_optimize_image_alt').val(event.data.imageName);
+    });
+  };
+  handleUploadImage();
 </script>
 <style>
   .mieruca-optimize-top {
