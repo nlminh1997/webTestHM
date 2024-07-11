@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class="mieruca-optimize-image-upload">
-  <div class="fileinput-image"><input class="file-input-image" type="file"
+  <div class="fileinput-image"><input id="file_input_image" class="file-input-image" type="file"
                                       accept="image/gif, image/jpeg, image/png, image/jfif, image/jpg, image/webp"><span>画像をアップロード</span>
   </div>
   <div class="mieruca-optimize-attr">
@@ -40,7 +40,8 @@
 
 <script>
   const handleUploadImage = () => {
-    $('.file-input-image').on('change', function(event) {
+    let uploadImage = document.getElementById('file_input_image');
+    uploadImage.addEventListener('change', (event) => {
       var file = event.target.files[0];
       if (file) {
         var reader = new FileReader();
