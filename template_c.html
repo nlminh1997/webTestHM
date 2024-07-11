@@ -89,7 +89,7 @@
       if (file) {
         var reader = new FileReader();
         reader.onload = function(e) {
-          const imageData = readerEvent.target.result;
+          const imageData = e.target.result;
           const message = {
             action: 'IMAGE_UPLOAD',
             data: {
