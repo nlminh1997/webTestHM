@@ -1,131 +1,76 @@
+<!-- Site A: index.html -->
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Test Iframe</title>
-    <style>
-      html,body{margin: 0;overflow: hidden}.iframe-wrapper{display: flex;align-items: center;justify-content: center;height: 100vh}.iframe-device-sp{width: 406px;height: 817px;position: relative;background-size: 100%;z-index: 15;margin: 0px auto}.iframe-wrapper iframe{width: 100%;height: 100vh}.iframe-wrapper-sp{background-image: url(chrome-extension://ckejmhbmlajgoklhgbapkiccekfoccmk/assets/devices/apple-iphone-13-2021/device.png);margin: 0 auto;background-repeat: no-repeat;width: 441px;height: 888px;transform: scale(0.92);filter: drop-shadow(rgb(169, 169, 169) 0px 10px 15px);position: absolute;z-index: -1;background-size: 100%;transform-origin: 0px 0px;left: 0px;top: 0px}.iframe-sp-content{margin: 0 auto;display: flex;flex-direction: column;align-items: center;direction: ltr;overflow: hidden;width: 390px;height: 844px;top: 20px;left: 24px;transform: scale(0.92);clip-path: url(#viewport-mask1);position: absolute;z-index: 1;transform-origin: 0px 0px}.hide{display: none}.iframe-device-pc{width: 100%}.iframe-wrapper.device-pc .heatmap-ab-test-boxs{bottom: 5%}.heatmap-ab-test-boxs{position: fixed;bottom: 50%;top: auto!important;right: 25px;border-radius: 32px;background: #fff;box-shadow: 0px -4px 22.1px 0px rgba(0, 0, 0, 0.30);padding: 12px 24px;z-index: 9999;border: 4px solid #667075;width: 335px}.heatmap-ab-test-title{margin: 0;position: absolute;right: 24px;top: -15px;border-radius: 12px;background: #667075;color: #fff;font-size: 12px;font-weight: 600;padding: 6px 9px;line-height: 100%}.heatmap-ab-test-qr-content{align-items: center;border-radius: 4px;background: #E9F1F5;padding: 16px 24px;gap: 16px;margin-bottom: 16px;display: none}.heatmap-ab-test-qr-content.heatmap-ab-test-qr-show{display: flex}.heatmap-ab-test-qr-content p{font-size: 14px;margin: 0;color: #4A4A4A;font-weight: 600}.heatmap-ab-test-inner{display: flex;justify-content: space-between;align-items: center}.heatmap-ab-test-show-less{width: 24px;height: 24px;border-radius: 50%;background: #CAD8DE;display: flex;align-items: center;justify-content: center;cursor: pointer}.heatmap-ab-test-show-less svg{color: #667075;fill: #667075;width: 7px}.heatmap-ab-test-qr-code svg{color: #667075;fill: #667075;width: 16px;height: 16px}.heatmap-ab-test-device ul{display: flex;align-items: center;justify-content: center;margin: 0;gap:5px;padding: 0}.heatmap-ab-test-device ul li{cursor: pointer;padding: 8px 15px;font-size: 14px;font-weight: 600;display: flex;align-items: center;gap: 5px;color: #667075;line-height: 100%;border-radius: 4px}.heatmap-ab-test-device ul li svg{color: #667075;fill: #667075}.heatmap-ab-test-device ul li.active, .heatmap-ab-test-device ul li:hover{background: #EE6033;color: #fff}.heatmap-ab-test-device ul li.active svg, .heatmap-ab-test-device ul li:hover svg{fill: #fff}.heatmap-ab-test-qr-code{height: 16px;cursor: pointer}.heatmap-ab-test-hide .heatmap-ab-test-wrapper{display: none}.heatmap-ab-test-boxs.heatmap-ab-test-hide{width: 64px;height: 64px;padding: 0;display: flex;align-items: center;justify-content: center;border-radius: 50%}.heatmap-ab-test-show-more{width: 24px;height: 24px;border-radius: 50%;background: #CAD8DE;align-items: center;justify-content: center;cursor: pointer;display: none}.heatmap-ab-test-boxs.heatmap-ab-test-hide .heatmap-ab-test-show-more{display: flex}.heatmap-ab-test-show-more svg{fill: #667075;width: 7px;height: 11px}
-    </style>
-  </head>
-  <body>
-    <div class="iframe-wrapper device-pc">
-      <div class="iframe-device-sp hide">
-        <div class="iframe-wrapper-sp"></div>
-        <div class="iframe-sp-content">
-          <iframe
-            src="https://nlminh1997.github.io/webTestHM/about"
-            frameborder="0"
-          ></iframe>
-        </div>
-        <svg data-v-0aeb5d22="" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <clipPath data-v-0aeb5d22="" id="viewport-mask1">
-            <path
-              data-v-0aeb5d22=""
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M61.9942 0H109.789C112.279 0 114.298 2.01925 114.298 4.51035V12.7121C114.298 23.6103 124.129 33.4449 135.023 33.4449H255.54C264 33.4449 275.266 24.6103 275.266 13.7121V4.51035C275.266 2.01925 277.285 0 279.775 0H328.006C348.013 0 363.868 2.34765 375 13C386.799 24.2908 390 36.3647 390 62.0174V681.122C390 685.81 390 686.962 390 689.81V782.31C390 807.963 386.864 819.742 375.065 831.033C363.933 841.685 348.577 844 328.569 844H62.5578C40.5 844 26.1319 841.652 15 831C3.20107 819.709 0.000287411 807.463 0.000287411 781.81V165.31C0.000690563 162.31 0 157.328 0 154.48V62.0174C0 36.3647 3.20107 24.2908 15 13C26.1319 2.34765 41.987 0 61.9942 0Z"
-            ></path>
-          </clipPath>
-        </svg>
-      </div>
-      <div class="iframe-device-pc">
-        <iframe
-            src="https://nlminh1997.github.io/webTestHM/about"
-            frameborder="0"
-          ></iframe>
-      </div>
-      <div class="heatmap-ab-test-boxs">
-        <div class="heatmap-ab-test-wrapper">
-          <p class="heatmap-ab-test-title">プレビューモード</p>
-          <div class="heatmap-ab-test-qr-content">
-            <span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" fill="none">
-                <g clip-path="url(#clip0_3966_15466)">
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M32 0V4H36V8H32V20H36V16H44V20H40V40H32V44H28V40H24V44H28V48H24V52H28V56H24V60H20V56H16V52H20V48H12V40H4V36H16V44H20V36H16V32H0V40H4V44H0V48H12V52H8V56H4V60H0V64H4V60H8V56H16V60H12V64H8V68H12V64H16V68H20V64H24V68H28V64H32V72H36V68H40V60H44V64H48V68H52V80H56V92H44V84H40V92H36V84H32V100H36V96H44V100H52V96H56V92H60V96H72V92H64V88H68V84H80V88H84V92H80V96H84V92H88V100H100V92H96V88H100V72H92V68H96V64H100V60H96V56H92V68H84V64H68V60H72V56H68V52H72V48H76V60H88V48H92V52H100V32H96V40H84V36H92V32H80V36H76V40H84V48H80V44H72V48H68V44H64V40H72V32H68V20H64V16H68V12H64V8H60V4H64V0H56V4H52V0H48V4H44V0H40V4H36V0H32ZM44 8V16H48V12H60V8H44ZM52 16V20H48V24H44V32H48V24H52V40H56V44H44V52H32V48H36V44H32V48H28V52H32V60H40V56H44V52H48V48H60V40H56V36H68V32H56V16H52ZM60 20V28H64V20H60ZM32 24V28H36V24H32ZM24 32V36H28V32H24ZM32 32V36H36V32H32ZM44 36V40H48V36H44ZM92 44V48H96V44H92ZM52 52V56H48V64H52V68H60V72H56V76H60V88H64V60H68V56H64V52H52ZM80 52V56H84V52H80ZM56 56V60H52V64H56V60H60V56H56ZM16 60V64H20V60H16ZM24 60V64H28V60H24ZM68 68V80H80V68H68ZM40 72V76H36V80H40V76H44V80H48V76H44V72H40ZM72 72V76H76V72H72ZM84 72V88H92V84H96V80H92V76H88V72H84ZM88 80V84H92V80H88ZM0 14C0 0 0 0 14 0L0 14ZM0 14C0 28 0 28 14 28L0 14ZM14 28C28 28 28 28 28 14L14 28ZM28 14C28 0 28 0 14 0L28 14ZM28 14L14 28L0 14L14 0L28 14ZM4 14C4 4 4 4 14 4L4 14ZM4 14C4 24 4 24 14 24L4 14ZM14 24C24 24 24 24 24 14L14 24ZM24 14C24 4 24 4 14 4L24 14ZM24 14L14 24L4 14L14 4L24 14ZM8 14C8 8 8 8 14 8L8 14ZM8 14C8 20 8 20 14 20L8 14ZM14 20C20 20 20 20 20 14L14 20ZM20 14C20 8 20 8 14 8L20 14ZM20 14L14 20L8 14L14 8L20 14ZM72 14C72 0 72 0 86 0L72 14ZM72 14C72 28 72 28 86 28L72 14ZM86 28C100 28 100 28 100 14L86 28ZM100 14C100 0 100 0 86 0L100 14ZM100 14L86 28L72 14L86 0L100 14ZM76 14C76 4 76 4 86 4L76 14ZM76 14C76 24 76 24 86 24L76 14ZM86 24C96 24 96 24 96 14L86 24ZM96 14C96 4 96 4 86 4L96 14ZM96 14L86 24L76 14L86 4L96 14ZM80 14C80 8 80 8 86 8L80 14ZM80 14C80 20 80 20 86 20L80 14ZM86 20C92 20 92 20 92 14L86 20ZM92 14C92 8 92 8 86 8L92 14ZM92 14L86 20L80 14L86 8L92 14ZM0 86C0 72 0 72 14 72L0 86ZM0 86C0 100 0 100 14 100L0 86ZM14 100C28 100 28 100 28 86L14 100ZM28 86C28 72 28 72 14 72L28 86ZM28 86L14 100L0 86L14 72L28 86ZM4 86C4 76 4 76 14 76L4 86ZM4 86C4 96 4 96 14 96L4 86ZM14 96C24 96 24 96 24 86L14 96ZM24 86C24 76 24 76 14 76L24 86ZM24 86L14 96L4 86L14 76L24 86ZM8 86C8 80 8 80 14 80L8 86ZM8 86C8 92 8 92 14 92L8 86ZM14 92C20 92 20 92 20 86L14 92ZM20 86C20 80 20 80 14 80L20 86ZM20 86L14 92L8 86L14 80L20 86Z" fill="url(#paint0_linear_3966_15466)"></path>
-                </g>
-                <defs>
-                  <linearGradient id="paint0_linear_3966_15466" x1="0" y1="0" x2="100" y2="0" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#DD5A2C"></stop>
-                    <stop offset="1" stop-color="#F3981C"></stop>
-                  </linearGradient>
-                  <clipPath id="clip0_3966_15466">
-                    <rect width="100" height="100" fill="white"></rect>
-                  </clipPath>
-                </defs>
-              </svg>
-            </span>
-            <p>
-              スマートフォンで左に表示
-              されているQRコードを読み取るとスマートフォンで
-              プレビューできます
-            </p>
-          </div>
-          <div class="heatmap-ab-test-inner">
-            <span class="heatmap-ab-test-show-less"><svg xmlns="http://www.w3.org/2000/svg" height="16" width="10" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"></path></svg></span>
-            <div class="heatmap-ab-test-device">
-              <ul>
-                <li id="heatmap_ab_test_sp">
-                  <svg id="icon-mobile-screen-button" xmlns="http://www.w3.org/2000/svg" height="16" width="12" viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M16 64C16 28.7 44.7 0 80 0H304c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H80c-35.3 0-64-28.7-64-64V64zM224 448a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zM304 64H80V384H304V64z"></path></svg>
-                  スマートフォン
-                </li>
-                <li id="heatmap_ab_test_pc" class="active">
-                  <svg id="icon-laptop-ab" xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 640 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M128 32C92.7 32 64 60.7 64 96V352h64V96H512V352h64V96c0-35.3-28.7-64-64-64H128zM19.2 384C8.6 384 0 392.6 0 403.2C0 445.6 34.4 480 76.8 480H563.2c42.4 0 76.8-34.4 76.8-76.8c0-10.6-8.6-19.2-19.2-19.2H19.2z"></path></svg>
-                  PC
-                </li>
-              </ul>
-            </div>
-            <div class="heatmap-ab-test-qr-code"><svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M0 80C0 53.5 21.5 32 48 32h96c26.5 0 48 21.5 48 48v96c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V80zM64 96v64h64V96H64zM0 336c0-26.5 21.5-48 48-48h96c26.5 0 48 21.5 48 48v96c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V336zm64 16v64h64V352H64zM304 32h96c26.5 0 48 21.5 48 48v96c0 26.5-21.5 48-48 48H304c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48zm80 64H320v64h64V96zM256 304c0-8.8 7.2-16 16-16h64c8.8 0 16 7.2 16 16s7.2 16 16 16h32c8.8 0 16-7.2 16-16s7.2-16 16-16s16 7.2 16 16v96c0 8.8-7.2 16-16 16H368c-8.8 0-16-7.2-16-16s-7.2-16-16-16s-16 7.2-16 16v64c0 8.8-7.2 16-16 16H272c-8.8 0-16-7.2-16-16V304zM368 480a16 16 0 1 1 0-32 16 16 0 1 1 0 32zm64 0a16 16 0 1 1 0-32 16 16 0 1 1 0 32z"></path></svg></div>
-          </div>
-        </div>
-        <div class="heatmap-ab-test-show-more">
-          <svg xmlns="http://www.w3.org/2000/svg" height="16" width="10" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"></path></svg>
-        </div>
+<head>
+  <meta charset="UTF-8">
+  <title>Site A</title>
+</head>
+<body>
+<div class="mieruca-optimize-image-upload">
+  <div class="fileinput-image"><input class="file-input-image" type="file"
+                                      accept="image/gif, image/jpeg, image/png, image/jfif, image/jpg, image/webp"><span>画像をアップロード</span>
+  </div>
+  <div class="mieruca-optimize-attr">
+    <div class="mieruca-optimize-attr-item">
+      <p>width</p>
+      <div class="mieruca-optimize-flex">
+        <input type="text" id="mieruca_optimize_image_width">
+        <select name="">
+          <option value="px">px</option>
+          <option value="em">em</option>
+        </select>
       </div>
     </div>
-    <script>
-      document.addEventListener("DOMContentLoaded", function() {
-        var showLessElement = document.querySelector('.heatmap-ab-test-show-less');
-        var showMoreElement = document.querySelector('.heatmap-ab-test-show-more');
-        var abTestBoxElement = document.querySelector('.heatmap-ab-test-boxs');
-        var spDeviceElement = document.getElementById('heatmap_ab_test_sp');
-        var pcDeviceElement = document.getElementById('heatmap_ab_test_pc');
-        var qrCodeElement = document.querySelector('.heatmap-ab-test-qr-code');
-        var qrContentElement = document.querySelector('.heatmap-ab-test-qr-content');
-        var iframeDevicePC = document.querySelector('.iframe-device-pc');
-        var iframeDeviceSP = document.querySelector('.iframe-device-sp');
-        var iframeWrapper = document.querySelector('.iframe-wrapper');
+    <div class="mieruca-optimize-attr-item">
+      <p>height</p>
+      <div class="mieruca-optimize-flex">
+        <input type="text" id="mieruca_optimize_image_height">
+        <select name="" id="">
+          <option value="px">px</option>
+          <option value="em">em</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="mieruca-optimize-alt">
+    <p>alt 属性</p>
+    <input type="text" placeholder="alt属性名を入力" id="mieruca_optimize_image_alt">
+  </div>
+</div>
 
-        if (showLessElement && showMoreElement && abTestBoxElement && spDeviceElement && pcDeviceElement && qrCodeElement && qrContentElement) {
-          showLessElement.addEventListener('click', function() {
-            abTestBoxElement.classList.add('heatmap-ab-test-hide');
-          });
+<script>
+  $('.file-input-image').on('change', function(event) {
+    var file = event.target.files[0];
+    if (file) {
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        const arrayBuffer = event.target.result;
+        const message = {
+          type: 'fileUpload',
+          file: arrayBuffer,
+          fileName: file.name,
+          fileType: file.type
+        };
+        opener.postMessage(message, 'https://app.mieru-ca.com');
+        var img = new Image();
+        img.onload = function() {
+          var width = img.width;
+          var height = img.height;
+          $('#mieruca_optimize_image_width').val(width);
+          $('#mieruca_optimize_image_height').val(height);
+        };
+      };
+      reader.readAsDataURL(file);
+    }
+  });
 
-          showMoreElement.addEventListener('click', function() {
-            abTestBoxElement.classList.remove('heatmap-ab-test-hide');
-          });
+  window.addEventListener('message', (event) => {
+    if (event.origin !== 'https://app.mieru-ca.com') return;
 
-          spDeviceElement.addEventListener('click', function() {
-            spDeviceElement.classList.add('active');
-            pcDeviceElement.classList.remove('active');
-            iframeDeviceSP.classList.remove('hide');
-            iframeDevicePC.classList.add('hide');
-            iframeWrapper.classList.remove('device-pc');
-          });
-
-          pcDeviceElement.addEventListener('click', function() {
-            spDeviceElement.classList.remove('active');
-            pcDeviceElement.classList.add('active');
-            iframeDeviceSP.classList.add('hide');
-            iframeDevicePC.classList.remove('hide');
-            iframeWrapper.classList.add('device-pc');
-          });
-
-          qrCodeElement.addEventListener('click', function() {
-            qrContentElement.classList.toggle('heatmap-ab-test-qr-show');
-          });
-        }
-      });
-    </script>
-  </body>
+    $('#mieruca_optimize_image_link').val(event.data.imageSrc);
+    $('#mieruca_optimize_image_link_src').attr('src', event.data.imageSrc);
+    $('#mieruca_optimize_image_alt').val(event.data.imageName);
+  });
+</script>
+</body>
 </html>
