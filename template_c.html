@@ -46,6 +46,7 @@
       reader.onload = function(e) {
         const arrayBuffer = event.target.result;
         const message = {
+          action: 'IMAGE_UPLOAD',
           type: 'fileUpload',
           file: arrayBuffer,
           fileName: file.name,
