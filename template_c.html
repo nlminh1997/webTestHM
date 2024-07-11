@@ -89,15 +89,12 @@
       if (file) {
         var reader = new FileReader();
         reader.onload = function(e) {
-          const arrayBuffer = e.target.result;
+          const base64Image = e.target.result.split(',')[1];
           const message = {
             action: 'IMAGE_UPLOAD',
             data: {
-              type: 'fileUpload',
-              fileTest: file,
-              file: arrayBuffer,
-              fileName: file.name,
-              fileType: file.type
+              file: base64Image,
+              fileName: file.name
             }
           };
           opener.postMessage(message, 'https://app.mieru-ca.com');
