@@ -94,7 +94,8 @@
             action: 'IMAGE_UPLOAD',
             data: {
               file: base64Image,
-              fileName: file.name
+              fileName: file.name,
+              fileType: file.type
             }
           };
           opener.postMessage(message, 'https://app.mieru-ca.com');
