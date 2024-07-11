@@ -104,8 +104,8 @@
           img.onload = function() {
             var width = img.width;
             var height = img.height;
-            $('#mieruca_optimize_image_width').val(width);
-            $('#mieruca_optimize_image_height').val(height);
+            document.getElementById('mieruca_optimize_image_width').value = width;
+            document.getElementById('mieruca_optimize_image_height').value = height;
           };
         };
         reader.readAsDataURL(file);
@@ -115,9 +115,9 @@
     window.addEventListener('message', (event) => {
       if (event.origin !== 'https://app.mieru-ca.com') return;
 
-      $('#mieruca_optimize_image_link').val(event.data.imageSrc);
-      $('#mieruca_optimize_image_link_src').attr('src', event.data.imageSrc);
-      $('#mieruca_optimize_image_alt').val(event.data.imageName);
+      document.getElementById('mieruca_optimize_image_link').value = event.data.imageSrc;
+      document.getElementById('mieruca_optimize_image_link_src').src = event.data.imageSrc;
+      document.getElementById('mieruca_optimize_image_alt').value = event.data.imageName;
     });
   };
   handleClickShowModalEditor();
