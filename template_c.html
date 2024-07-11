@@ -49,10 +49,12 @@
           const arrayBuffer = event.target.result;
           const message = {
             action: 'IMAGE_UPLOAD',
-            type: 'fileUpload',
-            file: arrayBuffer,
-            fileName: file.name,
-            fileType: file.type
+            data: {
+              type: 'fileUpload',
+              file: arrayBuffer,
+              fileName: file.name,
+              fileType: file.type
+            }
           };
           opener.postMessage(message, 'https://app.mieru-ca.com');
           var img = new Image();
