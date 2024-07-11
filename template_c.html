@@ -239,15 +239,15 @@
 
 <script>
   const handleClickShowModalEditor = () => {
-    $('#mieruca_optimize_image_link').val('https://upload-opt.mieru-ca.com/useruploads-dev/39101/images/d41ac1776452d257997cf4e2c871bc1d_448769165_850357163658461_2920403311067058175_n.jpg');
-    $('#mieruca_optimize_image_link_src').attr('src', 'https://upload-opt.mieru-ca.com/useruploads-dev/39101/images/d41ac1776452d257997cf4e2c871bc1d_448769165_850357163658461_2920403311067058175_n.jpg');
+    document.getElementById('mieruca_optimize_image_link').val('https://upload-opt.mieru-ca.com/useruploads-dev/39101/images/d41ac1776452d257997cf4e2c871bc1d_448769165_850357163658461_2920403311067058175_n.jpg');
+    document.getElementById('mieruca_optimize_image_link_src').attr('src', 'https://upload-opt.mieru-ca.com/useruploads-dev/39101/images/d41ac1776452d257997cf4e2c871bc1d_448769165_850357163658461_2920403311067058175_n.jpg');
     let img = new Image();
-    $('#mieruca_optimize_image_alt').val("This is image");
+    document.getElementById('mieruca_optimize_image_alt').val("This is image");
     img.onload = function() {
       var width = img.width;
       var height = img.height;
-      $('#mieruca_optimize_image_width').val(width);
-      $('#mieruca_optimize_image_height').val(height);
+      document.getElementById('mieruca_optimize_image_width').val(width);
+      document.getElementById('mieruca_optimize_image_height').val(height);
     };
     img.src = 'https://upload-opt.mieru-ca.com/useruploads-dev/39101/images/d41ac1776452d257997cf4e2c871bc1d_448769165_850357163658461_2920403311067058175_n.jpg';
     handleUploadImage();
