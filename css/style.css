@@ -343,6 +343,10 @@ button {
     font-weight: bold;
     padding-top: 30px;
 }
+.opt_text {
+    color: magenta;
+    background-color: cyan;
+}
 .lorem_text{
     width: 100%;
     float: left;
