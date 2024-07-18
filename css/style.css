@@ -337,7 +337,6 @@ button {
 }
 .mark_text {
     width: 100%;
-    float: left;
     font-size: 36px;
     color: #171414;
     font-weight: bold;
