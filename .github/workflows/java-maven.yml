@@ -13,7 +13,9 @@ jobs:
     runs-on: ubuntu-latest
 
     # Add a condition to ensure the PR is merged and the branch starts with 'feature/builder-'
-    if: github.event.pull_request.merged == true && startsWith(github.head_ref, 'feature/builder-')
+    if: github.event.pull_request.merged == true && (
+      startsWith(github.head_ref, 'feature/builder-') ||
+      startsWith(github.head_ref, 'feature/handler-'))
 
     steps:
       # Checkout the code from the develop branch
