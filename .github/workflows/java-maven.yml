@@ -1,0 +1,64 @@
+name: Java CI for Multi-Module Project
+
+on:
+  pull_request:
+    branches:
+      - 'develop'
+    types:
+      - closed  # Trigger only when a pull request is closed (merged)
+
+jobs:
+  # Job 1: Checkout, build, and test
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    # Add a condition to ensure the PR is merged and the branch starts with 'feature/builder-'
+    if: github.event.pull_request.merged == true && startsWith(github.head_ref, 'feature/builder-')
+
+    steps:
+      # Checkout the code from the develop branch
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      # Set up JDK 17
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+      
+      # Build and run tests
+      - name: Build and test
+        run: mvn -B package test
+
+  # Job 2: Check and merge changes to release branches
+  check-and-merge:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the code again for analysis
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      # Check if optimize-builder has changes and merge to release-builder
+      - name: Check changes in optimize-builder
+        run: |
+          if git diff --name-only develop -- optimize-builder/ | grep -q .; then
+            git checkout release-builder
+            git merge develop --optimize-builder
+            git push origin release-builder
+          else
+            echo "No changes in optimize-builder"
+          fi
+      
+      # Check if optimize-handler has changes and merge to release-handler
+      - name: Check changes in optimize-handler
+        run: |
+          if git diff --name-only develop -- optimize-handler/ | grep -q .; then
+            git checkout release-handler
+            git merge develop --optimize-handler
+            git push origin release-handler
+          else
+            echo "No changes in optimize-handler"
+          fi
