@@ -125,8 +125,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="col-md-6">
             <h1 class="mark_text">Mark email carefully for you</h1>
             <p class="lorem_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quisLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quisLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore </p>
-            <div class="contact_bt"><a href="https://minhltb.github.io/webOpti/contact" target="_blank" class="test1">Foody contact</a></div>
-            <div class="contact_bt"><a href="https://minhltb.github.io/webOpti/contact" target="_blank" class="test1">Foody contact</a></div>
+            <div class="contact_bt"><a id="btn-empty">Empty Tab</a></div>
+            <div class="contact_bt"><a id="btn-feature">Feature Tab</a></div>
             <div class="contact_bt"><a href="https://minhltb.github.io/webOpti/contact" target="_blank" class="test1">Foody contact</a></div>
             <div class="contact_bt"><a href="https://minhltb.github.io/webOpti/contact" target="_blank" class="test2">Foody contact</a></div>
             <div class="contact_bt"><a href="https://minhltb.github.io/webOpti/contact" target="_blank" class="test2">Foody contact</a></div>
@@ -331,5 +331,21 @@ November 25, 2019</p>
     <!-- javascript --> 
     <script src="js/owl.carousel.js"></script>
     <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+  <script>
+    function(){
+      $("#btn-empty").click(function () {
+        var params = new URLSearchParams(window.location.search);
+      var queryName = '';
+      params.set('tab', queryName);
+      window.history.replaceState({}, '', "".concat(window.location.pathname, "?").concat(params));
+      });
+      $("#btn-feature").click(function () {
+        var params = new URLSearchParams(window.location.search);
+      var queryName = 'feature';
+      params.set('tab', queryName);
+      window.history.replaceState({}, '', "".concat(window.location.pathname, "?").concat(params));
+      });
+    }();
+  </script>
 </body>
 </html>
