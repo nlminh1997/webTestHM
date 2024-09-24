@@ -332,7 +332,7 @@ November 25, 2019</p>
     <script src="js/owl.carousel.js"></script>
     <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
   <script>
-    function(){
+    function test() {
       $("#btn-empty").click(function () {
         var params = new URLSearchParams(window.location.search);
       var queryName = '';
@@ -345,7 +345,8 @@ November 25, 2019</p>
       params.set('tab', queryName);
       window.history.replaceState({}, '', "".concat(window.location.pathname, "?").concat(params));
       });
-    }();
+    };
+    test();
   </script>
 </body>
 </html>
