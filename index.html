@@ -35,22 +35,31 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-WTRKSV6N');</script>
 <!-- End Google Tag Manager -->
-<!--   <script>
-        console.log(document.readyState);
-        // Simulate a delay before DOMContentLoaded event by blocking DOM parsing
-        const delay = 10000; // 10-second delay
-        const start = performance.now();
-        
-        // Block DOM parsing to delay the DOMContentLoaded event
-        while (performance.now() - start < delay) {
-            // Busy-wait to simulate the delay
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log(document.readyState);
-            console.log('DOMContentLoaded event fired after 10 seconds');
-        });
-    </script> -->
+<script type="text/javascript">
+(function() {
+    setTimeout(function() {
+        var scriptContent = `
+            window.__optimizeid = window.__optimizeid || [];
+            __optimizeid.push([1399456198]);
+            (function () {
+                var fjs = document.createElement('script');
+                fjs.type = 'text/javascript';
+                fjs.async = true;
+                fjs.id = "fjssync";
+                var timestamp = new Date();
+                fjs.src = 'https://opt.mieru-ca.com/service/js/mieruca-optimize.js?v=' + timestamp.getTime();
+                var x = document.getElementsByTagName('script')[0];
+                x.parentNode.insertBefore(fjs, x);
+            })();
+        `;
+        var newScript = document.createElement('script');
+        newScript.type = 'text/javascript';
+        newScript.id = 'mierucaOptimizejs';
+        newScript.text = scriptContent;
+        document.body.appendChild(newScript);
+    }, 3000);
+})();
+</script>
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
