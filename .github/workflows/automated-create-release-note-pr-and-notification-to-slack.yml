@@ -23,6 +23,7 @@ permissions:
 
 env:
   OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
+  GH_TOKEN: ${{ github.token }}
   TARGET_BRANCH: ${{ github.event.inputs.target_branch || 'develop' }}
   DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
 
@@ -107,8 +108,6 @@ jobs:
 
       - name: Run release audit script
         id: audit
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           SCRIPT_PATH="scripts/release_audit.cjs"
           if [ ! -f "$SCRIPT_PATH" ]; then
