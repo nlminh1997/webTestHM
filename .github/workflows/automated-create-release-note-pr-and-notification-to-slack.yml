@@ -110,7 +110,14 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          node scripts/release_audit.cjs ${{ env.TARGET_BRANCH }} ${{ steps.branch.outputs.name }}
+          SCRIPT_PATH="scripts/release_audit.cjs"
+          if [ ! -f "$SCRIPT_PATH" ]; then
+            git fetch origin main
+            SCRIPT_PATH="$RUNNER_TEMP/release_audit.cjs"
+            git show origin/main:scripts/release_audit.cjs > "$SCRIPT_PATH"
+          fi
+
+          node "$SCRIPT_PATH" ${{ env.TARGET_BRANCH }} ${{ steps.branch.outputs.name }}
           
       - name: Parse reviewers
         id: reviewers
