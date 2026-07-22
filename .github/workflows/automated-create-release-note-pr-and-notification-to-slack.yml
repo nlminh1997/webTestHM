@@ -172,7 +172,6 @@ jobs:
             --head "${{ steps.branch.outputs.name }}" \
             --title "🚀 Release note $(date +'%Y-%m-%d')" \
             --body-file pr_body.md \
-            --label "release" \
             $REVIEWER_FLAG)
 
           PR_NUMBER=$(basename "${PR_URL}")
