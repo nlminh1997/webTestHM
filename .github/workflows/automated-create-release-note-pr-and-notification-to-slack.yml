@@ -73,7 +73,6 @@ jobs:
       - name: Checkout ${{ env.TARGET_BRANCH }}
         uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803  # v6.1.0
         with:
-          ref: ${{ env.TARGET_BRANCH }}
           fetch-depth: 0    # full history required for git log main..develop
 
       - name: Setup Node.js
@@ -102,7 +101,8 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git checkout -b ${{ steps.branch.outputs.name }}
+          git fetch origin ${{ env.TARGET_BRANCH }}
+          git checkout -b ${{ steps.branch.outputs.name }} origin/${{ env.TARGET_BRANCH }}
           git push origin ${{ steps.branch.outputs.name }}
 
       - name: Run release audit script
@@ -179,7 +179,7 @@ jobs:
   # JOB 3: PUSH NOTIFICATION TO SLACK
   # ==========================================
   slack-notify:
-    name: 🔔 4. Push notification to Slack
+    name: 🔔 3. Push notification to Slack
     needs: [ create-release-branch ] # Run after all jobs in the job group
     runs-on: ubuntu-latest
     if: success() # Only run if previous jobs succeeded
