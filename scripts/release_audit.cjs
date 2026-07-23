@@ -239,9 +239,6 @@ function fetchRequiredBranches(base, target) {
       if (p.hasOther && p.otherContent.length > 5) {
         deployNotes.push(`#### PR #${p.number} — Other Request\n${p.otherContent}`);
       }
-      if (p.hasOther && p.otherContent.length > 5) {
-        deployNotes.push(`#### PR #${p.number} — Other Request\n${p.otherContent}`);
-      }
     }
 
     if (deployNotes.length > 0) {
