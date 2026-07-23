@@ -161,7 +161,7 @@ width: 30%;
 .subscribe_bt a { font-size: 14px; }
 .Recent_text { font-size: 22px; }
 .menus_text { font-size: 22px; }
-.mark_text { font-size: 30px; } 
+.mark_text { font-size: 30px; text-transform: uppercase; } 
 .menus_left { width: 50%; }
 .menus_middle { width: 50%; }
 .menus_right { width: 100%; padding-top: 20px; }
@@ -215,7 +215,7 @@ width: 30%;
 .logo { width: 50%;}
 .banner_taital { font-size: 30px; }
 .contact_bt { width: 140px; } 
-.mark_text { font-size: 22px; }
+.mark_text { font-size: 22px; text-transform: uppercase;}
 .solution_text { font-size: 28px; }
 .cool_text { font-size: 15px; }
 .make_bt { width: 140px; }
@@ -287,7 +287,7 @@ padding: 126px 40px;
 .banner_taital { font-size: 30px; }
 .image_1 { padding-top: 30px; }
 .contact_bt { width: 140px; } 
-.mark_text { font-size: 28px; }
+.mark_text { font-size: 28px; text-transform: uppercase;}
 .solution_text { font-size: 28px; }
 .cool_text { font-size: 15px; }
 .make_bt { width: 140px; }
@@ -391,7 +391,7 @@ ul.link li {
 .banner_taital { font-size: 30px; }
 .image_1 { padding-top: 30px; }
 .contact_bt { width: 140px; } 
-.mark_text { font-size: 20px; }
+.mark_text { font-size: 20px; text-transform: uppercase;}
 .solution_text { font-size: 20px; }
 .cool_text { font-size: 15px; }
 .make_bt { width: 140px; }

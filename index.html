@@ -28,13 +28,38 @@
 <!-- owl stylesheets --> 
 <link rel="stylesheet" href="css/owl.carousel.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
-  <!-- Google Tag Manager -->
+<!--   Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-WTRKSV6N');</script>
 <!-- End Google Tag Manager -->
+<!-- <script type="text/javascript">
+(function() {
+    setTimeout(function() {
+        var scriptContent = `
+            window.__optimizeid = window.__optimizeid || [];
+            __optimizeid.push([1399456198]);
+            (function () {
+                var fjs = document.createElement('script');
+                fjs.type = 'text/javascript';
+                fjs.async = true;
+                fjs.id = "fjssync";
+                var timestamp = new Date();
+                fjs.src = 'https://opt.mieru-ca.com/service/js/mieruca-optimize.js?v=' + timestamp.getTime();
+                var x = document.getElementsByTagName('script')[0];
+                x.parentNode.insertBefore(fjs, x);
+            })();
+        `;
+        var newScript = document.createElement('script');
+        newScript.type = 'text/javascript';
+        newScript.id = 'mierucaOptimizejs';
+        newScript.text = scriptContent;
+        document.body.appendChild(newScript);
+    }, 15000);
+})();
+</script> -->
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -65,7 +90,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <li class="nav-item">
               <a class="nav-link" href="contact">CONTACT US</a>
             </li>
-          </ul>  
+          </ul>
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#email-section">Email</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#solution-section">Solution</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#template-section">Template</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#design-section">Design</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact-section">Contact</a>
+            </li>
+          </ul>
           <form class="form-inline my-2 my-lg-0">
             <div class="search_icon"><a href="#"><img src="images/call-icon.png"><span class="padding_left0">CALL US : +01 9876543210</span></a></div>
             <div class="search_icon"><a href="#"><img src="images/mail-icon.png"><span class="padding_left0">CALL US : +01 9876543210</span></a></div>
@@ -83,7 +125,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="carousel-item active">
               <div class="row">
                 <div class="col-md-6">
-                  <h1 class="banner_taital">Email mark provides <br> you a wonderful viewing experience </h1>
+                  <h6 class="banner_taital">Email mark provides <br> you a wonderful viewing experience </h6>
                   <div class="contact_bt"><a href="https://minhltb.github.io/webOpti/index">Foody Index</a></div>
                 </div>
                 <div class="col-md-6">
@@ -94,7 +136,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="carousel-item">
               <div class="row">
                 <div class="col-md-6">
-                  <h1 class="banner_taital">Email mark provides <br> you a wonderful viewing experience </h1>
+                  <h1 class="banner_taital">Email mark provides <br> you a wonderful viewing experience</h1>
                   <div class="contact_bt"><a href="https://minhltb.github.io/webOpti/about">Foody About</a></div>
                 </div>
                 <div class="col-md-6">
@@ -116,20 +158,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- templet bg section start -->
     <div class="templet_bg">
     <!-- email section start -->
-    <div class="email_section layout_padding">
+    <div id="email-section" class="email_section layout_padding">
       <div class="container">
         <div class="row">
           <div class="col-md-6">
             <div class="image_2"><img src="images/img-2.png"></div>
           </div>
           <div class="col-md-6">
-            <h1 class="mark_text">Mark email carefully for you</h1>
+            <h9 class="mark_text">Mark email carefully for you</h9>
             <p class="lorem_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quisLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quisLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore </p>
-            <div class="contact_bt"><a href="https://minhltb.github.io/webOpti/contact" target="_blank" class="test1">Foody contact</a></div>
-            <div class="contact_bt"><a href="https://minhltb.github.io/webOpti/contact" target="_blank" class="test1">Foody contact</a></div>
-            <div class="contact_bt"><a href="https://minhltb.github.io/webOpti/contact" target="_blank" class="test1">Foody contact</a></div>
-            <div class="contact_bt"><a href="https://minhltb.github.io/webOpti/contact" target="_blank" class="test2">Foody contact</a></div>
-            <div class="contact_bt"><a href="https://minhltb.github.io/webOpti/contact" target="_blank" class="test2">Foody contact</a></div>
+            <div class="contact_bt"><a id="btn-empty" href='https://www.nlminh1997.io/webTestHM/contact'>WWW contact</a></div>
+            <div class="contact_bt"><a id="btn-feature">Feature Tab</a></div>
+            <div class="contact_bt"><a href="https://minhltb.github.io/webOpti/contact" target="_blank" class="test1" rel="noopener">Foody contact have noopener</a></div>
+            <div class="contact_bt"><a href="https://minhltb.github.io/webOpti/contact" target="_blank" class="test2">Foody contact without noopener</a></div>
+            <div class="contact_bt"><a href="https://minhltb.github.io/webOpti/contact" target="_blank">Foody contact</a></div>
             <div class="contact_bt"><a href="https://testSub.nlminh1997.github.io/webTestHM/index" target="_blank" class="test2">Sub Domain</a></div>
           </div>
         </div>
@@ -137,7 +179,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <!-- email section end --> 
     <!-- solution section start -->
-    <div class="solution_section layout_padding">
+    <div id="solution-section" class="solution_section layout_padding">
       <div class="container">
         <h1 class="solution_text">Mark email is an all in one solution </h1>
         <div class="image_3"><img src="images/img-3.png"></div>
@@ -147,7 +189,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <!-- solution section end --> 
     <!-- template section start -->
-    <div class="template_section layout_padding">
+    <div id="template-section" class="template_section layout_padding">
       <div class="container">
         <h1 class="solution_text">Our Template</h1>
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -220,7 +262,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <!-- template section end -->
     <!-- design section start -->
-    <div class="design_section layout_padding">
+    <div id="design-section" class="design_section layout_padding">
       <div class="container">
         <h1 class="solution_text">Wonderful marketing design</h1>
         <div class="image_4"><img src="images/img-4.png"></div>
@@ -230,7 +272,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <!-- design section end --> 
     <!-- contact section start -->
-    <div class="contact_section layout_padding">
+    <div id="contact-section" class="contact_section layout_padding">
       <div class="container">
         <h1 class="solution_text">Contact Us</h1>
         <div class="mail_section">
@@ -244,7 +286,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <!-- contact section end -->
     <!-- footer section start -->
-    <div class="footer_section layout_padding">
+    <div id="footer-section" class="footer_section layout_padding">
       <div class="container">
         <div class="row">
           <div class="col-lg-6 col-sm-12">
@@ -331,5 +373,26 @@ November 25, 2019</p>
     <!-- javascript --> 
     <script src="js/owl.carousel.js"></script>
     <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+  <script>
+    /**
+     * Waits for 5000 milliseconds (5 seconds) and then
+     * adds a new <a> element to the document body.
+     */
+    setTimeout(function() {
+        // 1. Create the new <a> element
+        const newLink = document.createElement('a');
+
+        // 2. Set the text content and attributes
+        newLink.textContent = "test selector wait";
+        newLink.id = "test-selector-wait";
+        newLink.href = "#"; // Optional: Gives it a valid link behavior
+
+        // 3. Append the new element to the document body
+        document.body.appendChild(newLink);
+
+        console.log("Link added to the document after 5 seconds.");
+
+    }, 5000); // The delay in milliseconds
+</script>
 </body>
 </html>
