@@ -60,11 +60,6 @@ function log(color, msg) {
   console.log(`${colors[color] || ''}${msg}${colors.reset}`);
 }
 
-function extractSqlBlock(body) {
-  if (!body.includes('```sql')) return '';
-  return body.split('```sql')[1].split('```')[0].trim();
-}
-
 function extractOtherBlock(body) {
   if (!body.includes('Request Deployer')) return '';
   const parts = body.split('Other');
@@ -181,7 +176,6 @@ function fetchRequiredBranches(base, target) {
       // Only include PRs that were merged INTO the target branch
       if (pr.base.ref !== targetBranch) continue;
 
-      const hasSql   = /-\s\[[xX]\]\sSQL/.test(pr.body || '');
       const hasOther = /-\s\[[xX]\]\sOther/.test(pr.body || '');
 
       allPrDetails.push({
@@ -191,9 +185,7 @@ function fetchRequiredBranches(base, target) {
         authorType  : pr.user.type,
         mergedAt    : pr.merged_at ? new Date(pr.merged_at).toLocaleString() : 'N/A',
         labels      : (pr.labels || []).map(l => l.name),
-        hasSql,
         hasOther,
-        sqlContent  : hasSql  ? extractSqlBlock(pr.body || '')  : '',
         otherContent: hasOther ? extractOtherBlock(pr.body || '') : '',
       });
 
@@ -234,19 +226,18 @@ function fetchRequiredBranches(base, target) {
 
   for (const [author, prs] of Object.entries(groups)) {
     report += `### @${author}\n\n`;
-    report += `| PR | Title | SQL? | Other? |\n`;
-    report += `| :--- | :--- | :---: | :---: |\n`;
+    report += `| PR | Title | Other? |\n`;
+    report += `| :--- | :--- | :---: |\n`;
 
     const deployNotes = [];
 
     for (const p of prs) {
       const prUrl  = repoSlug ? `[#${p.number}](https://github.com/${repoSlug}/pull/${p.number})` : `#${p.number}`;
-      const sqlSym = p.hasSql   ? '✅' : '—';
       const otrSym = p.hasOther ? '✅' : '—';
-      report += `| ${prUrl} | ${p.title} | ${sqlSym} | ${otrSym} |\n`;
+      report += `| ${prUrl} | ${p.title} | ${otrSym} |\n`;
 
-      if (p.hasSql && p.sqlContent.length > 0) {
-        deployNotes.push(`#### PR #${p.number} — SQL Request\n\`\`\`sql\n${p.sqlContent}\n\`\`\``);
+      if (p.hasOther && p.otherContent.length > 5) {
+        deployNotes.push(`#### PR #${p.number} — Other Request\n${p.otherContent}`);
       }
       if (p.hasOther && p.otherContent.length > 5) {
         deployNotes.push(`#### PR #${p.number} — Other Request\n${p.otherContent}`);
@@ -263,7 +254,6 @@ function fetchRequiredBranches(base, target) {
 
   // Deployment checklist footer
   report += `## ✅ Release Checklist\n\n`;
-  report += `- [ ] All SQL scripts reviewed and approved\n`;
   report += `- [ ] All "Other" deployment steps confirmed\n`;
   report += `- [ ] Staging deployment verified\n`;
   report += `- [ ] Release branch merged to \`main\`\n`;
