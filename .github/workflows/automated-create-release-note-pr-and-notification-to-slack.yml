@@ -1,0 +1,258 @@
+name: Automated Create Release Note PR and Push Notification to Slack
+on:
+  schedule:
+  # 02:00 AM UTC Monday = 09:00 AM Hanoi Time Monday
+    - cron: '0 2 * * 1'
+  # Allow manual trigger for testing without waiting for Monday
+  workflow_dispatch:
+    inputs:
+      target_branch:
+        description: 'Target branch to audit'
+        required: false
+        default: 'develop'
+      dry_run:
+        description: 'Dry run (generate report but skip PR creation)'
+        type: boolean
+        required: false
+        default: false
+
+permissions:
+  contents: write
+  pull-requests: write
+  actions: write
+
+env:
+  OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
+  GH_TOKEN: ${{ github.token }}
+  TARGET_BRANCH: ${{ github.event.inputs.target_branch || 'develop' }}
+  DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
+
+jobs:
+  # ==========================================
+  # JOB 1: Check the changes
+  # ==========================================
+  check-changes:
+    name: 🔍 1. Check the changes (Develop vs Main)
+    runs-on: ubuntu-latest
+    outputs:
+      has_changes: ${{ steps.check.outputs.has_changes }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803  # v6.1.0
+        with:
+          fetch-depth: 0
+
+      - name: Git Diff Check
+        id: check
+        run: |
+          git fetch origin main develop
+          if git diff --quiet origin/main..origin/develop; then
+            echo "🔥 No changes detected between develop and main."
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "🚀 New changes detected!"
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          fi
+
+  # ==========================================
+  # JOB 2: CREATE BRANCH VÀ MERGE CODE
+  # ==========================================
+  create-release-branch:
+    name: 🌿 2. Create Release & Merge Code
+    needs: check-changes
+    if: needs.check-changes.outputs.has_changes == 'true'
+    runs-on: ubuntu-latest
+    outputs:
+      branch_name: ${{ steps.branch.outputs.name }}
+      pr_url: ${{ steps.create_pr.outputs.url }}
+      pr_number: ${{ steps.create_pr.outputs.number }}
+      pr_date: ${{ steps.create_pr.outputs.date }}
+      reviewers_logins: ${{ steps.reviewers.outputs.logins }}
+      reviewers_display: ${{ steps.reviewers.outputs.logins_display }}
+
+    steps:
+      - name: Checkout ${{ env.TARGET_BRANCH }}
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803  # v6.1.0
+        with:
+          fetch-depth: 0    # full history required for git log main..develop
+
+      - name: Setup Node.js
+        uses: actions/setup-node@395ad3262231945c25e8478fd5baf05154b1d79f  # v6.1.0
+        with:
+          node-version: '24'
+
+      - name: Compute release branch name
+        id: branch
+        run: |
+          DATE=$(date +'%Y%m%d')
+          BRANCH_NAME="release/v.${DATE}.1"
+
+          # Handle collision — if branch already exists, increment suffix
+          COUNTER=1
+          while git ls-remote --exit-code --heads origin "${BRANCH_NAME}" > /dev/null 2>&1; do
+            COUNTER=$((COUNTER + 1))
+            BRANCH_NAME="release/v.${DATE}.${COUNTER}"
+          done
+
+          echo "name=${BRANCH_NAME}" >> $GITHUB_OUTPUT
+          echo "📦 Release branch will be: ${BRANCH_NAME}"
+
+      - name: Create release branch
+        if: env.DRY_RUN != 'true'
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git fetch origin ${{ env.TARGET_BRANCH }}
+          git checkout -b ${{ steps.branch.outputs.name }} origin/${{ env.TARGET_BRANCH }}
+          git push origin ${{ steps.branch.outputs.name }}
+
+      - name: Run release audit script
+        id: audit
+        run: |
+          SCRIPT_PATH="scripts/release_audit.cjs"
+          if [ ! -f "$SCRIPT_PATH" ]; then
+            git fetch origin main
+            SCRIPT_PATH="$RUNNER_TEMP/release_audit.cjs"
+            git show origin/main:scripts/release_audit.cjs > "$SCRIPT_PATH"
+          fi
+
+          node "$SCRIPT_PATH" ${{ env.TARGET_BRANCH }} ${{ steps.branch.outputs.name }}
+          
+      - name: Parse reviewers
+        id: reviewers
+        run: |
+          if [ ! -f reviewers.json ]; then
+            echo "reviewers.json not found — using empty list"
+            echo "logins=" >> $GITHUB_OUTPUT
+            exit 0
+          fi
+
+          # Convert ["alice","bob"] → alice,bob  (used for --reviewer flag)
+          LOGINS=$(cat reviewers.json | jq -r 'join(",")')
+          # Space-separated display version for Slack
+          LOGINS_DISPLAY=$(cat reviewers.json | jq -r 'join(", ")')
+          echo "logins=${LOGINS}" >> $GITHUB_OUTPUT
+          echo "logins_display=${LOGINS_DISPLAY}" >> $GITHUB_OUTPUT
+          echo "👥 Reviewers: ${LOGINS}"
+          
+      - name: Prepare PR body
+        id: pr_body
+        run: |
+          REPORT_FILE="detailed_release_audit.md"
+          if [ ! -f "$REPORT_FILE" ]; then
+            echo "No report file found." > pr_body.md
+          else
+            # Truncate to ~60k chars to stay within GitHub's limit
+            head -c 60000 "$REPORT_FILE" > pr_body.md
+            # Append note if truncated
+            ORIGINAL=$(wc -c < "$REPORT_FILE")
+            if [ "$ORIGINAL" -gt 60000 ]; then
+              echo -e "\n\n---\n> ⚠️ Report truncated. See full file in workflow artifacts." >> pr_body.md
+            fi
+          fi
+
+      - name: Upload audit report
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7.0.1
+        with:
+          name: release-audit-report
+          path: detailed_release_audit.md
+
+      - name: Create Release PR
+        if: env.DRY_RUN != 'true'
+        id: create_pr
+        run: |
+          REVIEWER_FLAG=""
+          if [ -n "${{ steps.reviewers.outputs.logins }}" ]; then
+            REVIEWER_FLAG="--reviewer ${{ steps.reviewers.outputs.logins }}"
+          fi
+
+          PR_URL=$(gh pr create \
+            --base main \
+            --head "${{ steps.branch.outputs.name }}" \
+            --title "🚀 Release note $(date +'%Y-%m-%d')" \
+            --body-file pr_body.md \
+            $REVIEWER_FLAG)
+
+          PR_NUMBER=$(basename "${PR_URL}")
+          echo "url=${PR_URL}" >> $GITHUB_OUTPUT
+          echo "number=${PR_NUMBER}" >> $GITHUB_OUTPUT
+          echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+          echo "✅ PR created: ${PR_URL}"
+          
+  # ==========================================
+  # JOB 3: PUSH NOTIFICATION TO SLACK
+  # ==========================================
+  slack-notify:
+    name: 🔔 3. Push notification to Slack
+    needs: [ create-release-branch ] # Run after all jobs in the job group
+    runs-on: ubuntu-latest
+    if: success() # Only run if previous jobs succeeded
+    steps:
+      - name: Load secrets from 1Password
+        if: env.DRY_RUN != 'true' && needs.create-release-branch.outputs.pr_url != ''
+        id: load-secrets
+        uses: 1password/load-secrets-action@7ce42673ba9ed69053d678faeba29ea36bd25755  # v4.0.0
+        with:
+          export-env: true
+        env:
+          OP_SERVICE_ACCOUNT_TOKEN: ${{ env.OP_SERVICE_ACCOUNT_TOKEN }}
+          SLACK_WEBHOOK: op://${{ vars.OP_VAULT }}/SLACK_WEBHOOK/credential
+
+      - name: Notify Slack
+        if: env.DRY_RUN != 'true' && needs.create-release-branch.outputs.pr_url != ''
+        uses: slackapi/slack-github-action@dcb1066f776dd043e64d0e8ba94ca15cc7e1875d  # v4.0.0
+        with:
+          webhook: ${{ env.SLACK_WEBHOOK }}
+          webhook-type: incoming-webhook
+          payload: |
+            {
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "👋 Hi @vn-engineers-mieruca-heatmap\n\n✨ This sprint's *Heatmap Japan* release note PR is ready. Please take a look when you can!\n\n📅 *${{ needs.create-release-branch.outputs.pr_date }}*"
+                  }
+                },
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "*🔗 Release PR:*\n<${{ needs.create-release-branch.outputs.pr_url }}|Open Pull Request>"
+                  }
+                },
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "*👥 Reviewers:*\n${{ needs.create-release-branch.outputs.reviewers_display || '(none)' }}"
+                  }
+                },
+                {
+                  "type": "context",
+                  "elements": [
+                    {
+                      "type": "mrkdwn",
+                      "text": "🤖 _Automated weekly release note notification_"
+                    }
+                  ]
+                }
+              ]
+            }
+
+      - name: Write job summary
+        if: always()
+        run: |
+          echo "## 🚀 Release PR Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Field | Value |" >> $GITHUB_STEP_SUMMARY
+          echo "| :--- | :--- |" >> $GITHUB_STEP_SUMMARY
+          echo "| **Release branch** | \`${{ needs.create-release-branch.outputs.branch_name }}\` |" >> $GITHUB_STEP_SUMMARY
+          echo "| **Target branch**  | \`${{ env.TARGET_BRANCH }}\` |" >> $GITHUB_STEP_SUMMARY
+          echo "| **Dry run**        | ${{ env.DRY_RUN }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| **Reviewers**      | ${{ needs.create-release-branch.outputs.reviewers_logins }} |" >> $GITHUB_STEP_SUMMARY
+
+          if [ -n "${{ needs.create-release-branch.outputs.pr_url }}" ]; then
+            echo "| **PR URL** | ${{ needs.create-release-branch.outputs.pr_url }} |" >> $GITHUB_STEP_SUMMARY
+          fi
