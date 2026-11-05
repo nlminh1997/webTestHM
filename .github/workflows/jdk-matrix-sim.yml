@@ -1,0 +1,51 @@
+name: JDK Matrix (simulation)
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+jobs:
+  plan:
+    name: Plan JDK cells
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "plan cells"
+  builder:
+    name: builder build${{ matrix.build }}-release${{ matrix.release }}-run${{ matrix.run }}
+    needs: plan
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { build: 17, release: 17, run: 17 }
+          - { build: 25, release: 17, run: 25 }
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          if [ "${{ matrix.run }}" != "17" ]; then echo "non-baseline: expected fail"; exit 1; fi
+          if [ -f FAIL_BUILDER ]; then echo "baseline broken"; exit 1; fi
+          echo "baseline OK"
+  handler:
+    name: handler build${{ matrix.build }}-release${{ matrix.release }}-run${{ matrix.run }}
+    needs: plan
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { build: 17, release: 17, run: 17 }
+          - { build: 25, release: 17, run: 25 }
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          if [ "${{ matrix.run }}" != "17" ]; then echo "non-baseline: expected fail"; exit 1; fi
+          if [ -f FAIL_HANDLER ]; then echo "baseline broken"; exit 1; fi
+          echo "baseline OK"
+  summary:
+    name: JDK matrix summary
+    needs: [builder, handler]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "summary"
